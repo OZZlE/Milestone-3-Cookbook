@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
     {% for recipe in recipes %}
-        {{recipe.recipe_name}}
-        {{recipe.category_name}}
-        {{recipe.recipe_description}}
-        {{recipe.recipe_ingredients}}
-        {{recipe.recipe_preperation_1}}
-        {{recipe.recipe_preperation_2}}
-        {{recipe.recipe_preperation_3}}
-        {{recipe.recipe_preperation_4}}
-        {{recipe.amount}}
-        {{recipe.preperation_time}}
-        {{recipe.cook_time}}
-        {{recipe.calories}}
-        {{recipe.carbohydrates}}
-        {{recipe.fat}}
-        {{recipe.protein}}
+       <h2> {{recipe.recipe_name}}</h2>
+       <h4> {{recipe.category_name}}</h4>
+       <!--image goes here-->
+        <p> {{recipe.recipe_description}}</p>
+        <p> {{recipe.recipe_ingredients}}</p> 
+        <p> {{recipe.recipe_preperation_1}}</p> 
+       <p>  {{recipe.recipe_preperation_2}}</p> 
+        <p> {{recipe.recipe_preperation_3}}</p> 
+        <p> {{recipe.recipe_preperation_4}}</p> 
+       <p> Amount: {{recipe.amount}}</p> 
+       <p> Prep Time: {{recipe.preperation_time}}</p> 
+       <p> Cook Time: {{recipe.cook_time}}</p> 
+       <p> Calories: {{recipe.calories}}</p> 
+       <p> Carbohydrates: {{recipe.carbohydrates}}</p> 
+       <p> Fat:  {{recipe.fat}}</p> 
+       <p> Protien: {{recipe.protein}}</p> 
     {% endfor %}
 {% endblock %}

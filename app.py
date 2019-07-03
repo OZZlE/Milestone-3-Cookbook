@@ -25,9 +25,9 @@ def add_recipes():
     return render_template("addrecipes.html")
     
     
-@app.route('/get_catagories')
-def get_catagories():
-    return render_template("catagories.html")
+@app.route('/get_categories')
+def get_categories():
+    return render_template("categories.html")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

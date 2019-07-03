@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>View Recipe Categories</h1>
+    
+    {% for category_name in categories %}
+       <h1> {{categories.category_name}}</h1>
+       <!--image goes here-->
+       
+    {% endfor %}
+{% endblock %}

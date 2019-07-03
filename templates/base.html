@@ -20,13 +20,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('get_recipes') }}">Get Recipes</a>
+                        <a class="nav-link" href="{{ url_for('get_recipes') }}">View Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('add_recipes') }}">New Recipe</a>
+                        <a class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('get_categories') }}">Manage Categories</a>
+                        <a class="nav-link" href="{{ url_for('get_categories') }}">View Categories</a>
                     </li>
                 </ul>
             </div>
@@ -34,7 +34,7 @@
 </nav>
           
      <!-- Page Header -->
-    <header class="masthead" style="background-image: url('../static/img/fresh-food-bg.jpg')">
+    <header class="masthead" style="background-image: ../static/img/fresh-food-bg.jpg'">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -52,23 +52,7 @@
     <div class="container">
         {% block content %} {% endblock %}
     </div>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
-    <script type="text/javascript">
-        // $(document).ready(function() {
-        //     $('.collapsible').collapsible();
-        //     $('select').material_select();
-        //     $(".button-collapse").sideNav();
-        // });
-        // $('.datepicker').pickadate({
-        //     selectMonths: true, // Creates a dropdown to control month
-        //     selectYears: 15, // Creates a dropdown of 15 years to control year,
-        //     today: 'Today',
-        //     clear: 'Clear',
-        //     close: 'Ok',
-        //     closeOnSelect: false // Close upon selecting a date,
-        // });
-    </script>
+    
     <hr>
 
     <!-- Footer -->
@@ -77,13 +61,13 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <!--<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>-->
-    <!--<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>-->
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    
+  
     <!-- Custom scripts for this template -->
-    <!--<script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>-->
-        <script src="../static/js/clean-blog.min.js"></script>
+    <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
+    
 
 </body>
 
