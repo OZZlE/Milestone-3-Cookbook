@@ -1,21 +1,18 @@
-{% extends 'base.html' %}
-{% block content %}
-    {% for recipe in recipes %}
-       <h2> {{recipe.recipe_name}}</h2>
-       <h4> {{recipe.category_name}}</h4>
-       <!--image goes here-->
-        <p> {{recipe.recipe_description}}</p>
-        <p> {{recipe.recipe_ingredients}}</p> 
-        <p> {{recipe.recipe_preperation_1}}</p> 
-       <p>  {{recipe.recipe_preperation_2}}</p> 
-        <p> {{recipe.recipe_preperation_3}}</p> 
-        <p> {{recipe.recipe_preperation_4}}</p> 
-       <p> Amount: {{recipe.amount}}</p> 
-       <p> Prep Time: {{recipe.preperation_time}}</p> 
-       <p> Cook Time: {{recipe.cook_time}}</p> 
-       <p> Calories: {{recipe.calories}}</p> 
-       <p> Carbohydrates: {{recipe.carbohydrates}}</p> 
-       <p> Fat:  {{recipe.fat}}</p> 
-       <p> Protien: {{recipe.protein}}</p> 
-    {% endfor %}
-{% endblock %}
+{% extends 'base.html' %} {% block content %} {% for recipe in recipes %}
+<h2> {{recipe.category_name}}</h2>
+<img class="recipe-image" src="{{recipe.image}}"></img>
+<h4>{{recipe.recipe_name}} </h4>
+<p> <i>{{recipe.recipe_description}}</i></p>
+<p><b>Ingredients</b>: {{recipe.recipe_ingredients}}</p>
+<p><b>Preperation</b>: {{recipe.recipe_preperation_1}}</p>
+<p> {{recipe.recipe_preperation_2}}</p>
+<p> {{recipe.recipe_preperation_3}}</p>
+<p> {{recipe.recipe_preperation_4}}</p>
+<p> <b>Amount</b>: {{recipe.amount}}</p>
+<p> <b>Prep Time</b>: {{recipe.preperation_time}}</p>
+<p> <b>Cook Time</b>: {{recipe.cook_time}}</p>
+<p> <b>Calories</b>: {{recipe.calories}}</p>
+<p> <b>Carbohydrates</b>: {{recipe.carbohydrates}}</p>
+<p> <b>Fat</b>: {{recipe.fat}}</p>
+<p> <b>Protien</b>: {{recipe.protein}}</p>
+{% endfor %} {% endblock %}

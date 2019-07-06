@@ -4,6 +4,29 @@ To start the app in AWS type python3 app.py in the terminal and click the previe
 
 Keep it(mongodb key) in an environment variable and use `os.getenv()` or `os.environ.get()` to fetch it.
 
+To do:
+1. like button
+2. search function
+3. sort by vegitarian, high protein, low carb, etc
+4. health labels like peanut free, sugar conscious etc
+5. login / sign up
+6. pagination
+7. add icons to serves #, calories, cook time, etc
+8. single recipe overview
+
+adding image if else to recipe page
+ <!-- {% if categories.category_name == category_name.Breakfast%}-->
+       <!--{% <img src="../static/img/alireza-etemadi-JBIK4QZOFfc-unsplash.jpg" class="img-responsive img-thumbnail img-cirlce"></img> %}-->
+       <!--{% else %}-->
+       
+       <!--{% else %}-->
+       
+       <!--{% else %}-->
+       
+       <!--{% else %}-->
+       
+       <!--{% endif %}-->
+
 CREATE AN ONLINE COOKBOOK:
 
     Create a web application that allows users to store and easily access cooking recipes
