@@ -1,6 +1,8 @@
-A cookbook website were you can create new recipes, read existing recipes, update existing recipes, and delete recipes.
+# A cookbook website were you can create new recipes, read existing recipes, update existing recipes, and delete recipes.
 
-To start the app in AWS type python3 app.py in the terminal and click the preview running app.
+## [Fitness Cookbook](https://cook-book-application.herokuapp.com/ "Milestone #3") 
+
+#### To start the app in AWS type python3 app.py in the terminal and click the preview running app.
 
 Keep it(mongodb key) in an environment variable and use `os.getenv()` or `os.environ.get()` to fetch it.
 
@@ -15,7 +17,7 @@ To do:
 8. single recipe overview
 
 Code to add later:
-# create recipe 
+### create recipe 
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
@@ -23,10 +25,10 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('get_recipes'))
 
-# edit recipe
+### edit recipe
 
 @app.route('/edit_recipes')
-# add <task_id> after /edit_recipes after assinging recipe_id
+#### add <task_id> after /edit_recipes after assinging recipe_id
 def edit_recipes(recipes_id):
     return render_template("edit_recipes.html")
     # the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
@@ -34,7 +36,7 @@ def edit_recipes(recipes_id):
     # return render_template('editrecipe.html', recipe=the_recipe,
     #                       categories=all_categories)
 
-# add recipe to database
+### add recipe to database
 
 @app.route('/update_recipe/<recipes_id>', methods=["POST"])
 def update_recipe(recipes_id):
@@ -48,15 +50,15 @@ def update_recipe(recipes_id):
     })
 return redirect(url_for('get_recipes'))
 
-# link to edit recipe page
+### link to edit recipe page
 
- <li class="nav-item">
+ > <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('edit_recipes') }}">Edit Recipe</a>
                     </li>
 
-CREATE AN ONLINE COOKBOOK:
+### CREATE AN ONLINE COOKBOOK:
 
-    Create a web application that allows users to store and easily access cooking recipes
+> Create a web application that allows users to store and easily access cooking recipes
     Put some effort into designing a database schema based on recipes, and any other related properties and entities (e.g. views, upvotes, ingredients, recipe authors, allergens, author’s country of origin, cuisine etc…). Make sure to put some thought into the relationships between them, and use either foreign keys (in the case of a relational database) or nesting (in the case of a document store) to connect these pieces of data
     Create the backend code and frontend form to allow users to add new recipes to the site (at least a basic one, if you haven’t taken the frontend course)
     Create the backend code to group and summarise the recipes on the site, based on their attributes such as cuisine, country of origin, allergens, ingredients, etc. and a frontend page to show this summary, and make the categories clickable to drill down into a filtered view based on that category. This frontend page can be as simple or as complex as you’d like; you can use a Python library such as matplotlib, or a JS library such as d3/dc (that you learned about if you took the frontend modules) for visualisation
