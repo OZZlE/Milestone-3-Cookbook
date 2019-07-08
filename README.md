@@ -14,18 +14,45 @@ To do:
 7. add icons to serves #, calories, cook time, etc
 8. single recipe overview
 
-adding image if else to recipe page
- <!-- {% if categories.category_name == category_name.Breakfast%}-->
-       <!--{% <img src="../static/img/alireza-etemadi-JBIK4QZOFfc-unsplash.jpg" class="img-responsive img-thumbnail img-cirlce"></img> %}-->
-       <!--{% else %}-->
-       
-       <!--{% else %}-->
-       
-       <!--{% else %}-->
-       
-       <!--{% else %}-->
-       
-       <!--{% endif %}-->
+Code to add later:
+# create recipe 
+
+@app.route('/insert_recipe', methods=['POST'])
+def insert_recipe():
+    recipes =  mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('get_recipes'))
+
+# edit recipe
+
+@app.route('/edit_recipes')
+# add <task_id> after /edit_recipes after assinging recipe_id
+def edit_recipes(recipes_id):
+    return render_template("edit_recipes.html")
+    # the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+    # all_categories =  mongo.db.categories.find()
+    # return render_template('editrecipe.html', recipe=the_recipe,
+    #                       categories=all_categories)
+
+# add recipe to database
+
+@app.route('/update_recipe/<recipes_id>', methods=["POST"])
+def update_recipe(recipes_id):
+    recipes = mongo.db.recipes
+    recipes.update( {'_id': ObjectId(recipes_id)},
+    {
+        'recipe_name':request.form.get('recipe_name'),
+        'category_name':request.form.get('category_name'),
+        'recipe_description': request.form.get('recipe_description')
+      
+    })
+return redirect(url_for('get_recipes'))
+
+# link to edit recipe page
+
+ <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('edit_recipes') }}">Edit Recipe</a>
+                    </li>
 
 CREATE AN ONLINE COOKBOOK:
 

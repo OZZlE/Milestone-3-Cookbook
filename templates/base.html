@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/img/favicon-32x32.png?">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
@@ -34,9 +35,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe</a>
                     </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('edit_recipes') }}">Edit Recipe</a>
-                    </li>
+                     
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('get_categories') }}">View Categories</a>
                     </li>

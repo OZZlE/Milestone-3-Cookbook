@@ -18,4 +18,22 @@
 .recipe-image {
     height: 320px;
     width: 320px;
+    float: right;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.center-div {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.clearfix {
+  overflow: auto;
 }
