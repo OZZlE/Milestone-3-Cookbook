@@ -1,9 +1,13 @@
-{% extends 'base.html' %} {% block content %} 
-<h2 class="center">{{page_title}}</h2>
-{% for recipe in recipes %}
-<h3> {{recipe.category_name}}</h3>
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+    <div class="col-md-5">
 <img class="recipe-image" src="{{recipe.image}}" alt="Profile image for {{recipe.recipe_name}}"></img>
-<h4><a href="/recipes/{{recipe.url}}.html">{{recipe.recipe_name}}</a></h4>
+        <h2 class="col-md-7">{{ recipe.recipe_name }}</h2>
+    </div>
+</div>
+
+<div class="col-md-12">
 <p> <i>{{recipe.recipe_description}}</i></p>
 <p><b>Ingredients</b>: {{recipe.recipe_ingredients}}</p>
 <p><b>Preperation</b>: {{recipe.recipe_preperation_1}}</p>
@@ -17,4 +21,6 @@
 <p> <b>Carbohydrates</b>: {{recipe.carbohydrates}}</p>
 <p> <b>Fat</b>: {{recipe.fat}}</p>
 <p> <b>Protien</b>: {{recipe.protein}}</p>
-{% endfor %} {% endblock %}
+</div>
+
+{% endblock %}

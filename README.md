@@ -4,7 +4,7 @@
 
 #### To start the app in AWS type python3 app.py in the terminal and click the preview running app.
 
-Keep it(mongodb key) in an environment variable and use `os.getenv()` or `os.environ.get()` to fetch it.
+##### Keep it(mongodb key) in an environment variable and use `os.getenv()` or `os.environ.get()` to fetch it.
 
 To do:
 1. like button
@@ -19,7 +19,7 @@ To do:
 Code to add later:
 ### create recipe 
 
-@app.route('/insert_recipe', methods=['POST'])
+> @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes =  mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
@@ -27,7 +27,7 @@ def insert_recipe():
 
 ### edit recipe
 
-@app.route('/edit_recipes')
+> @app.route('/edit_recipes')
 #### add <task_id> after /edit_recipes after assinging recipe_id
 def edit_recipes(recipes_id):
     return render_template("edit_recipes.html")
@@ -38,7 +38,7 @@ def edit_recipes(recipes_id):
 
 ### add recipe to database
 
-@app.route('/update_recipe/<recipes_id>', methods=["POST"])
+> @app.route('/update_recipe/<recipes_id>', methods=["POST"])
 def update_recipe(recipes_id):
     recipes = mongo.db.recipes
     recipes.update( {'_id': ObjectId(recipes_id)},
@@ -47,7 +47,7 @@ def update_recipe(recipes_id):
         'category_name':request.form.get('category_name'),
         'recipe_description': request.form.get('recipe_description')
       
-    })
+  >  })
 return redirect(url_for('get_recipes'))
 
 ### link to edit recipe page
@@ -55,6 +55,20 @@ return redirect(url_for('get_recipes'))
  > <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('edit_recipes') }}">Edit Recipe</a>
                     </li>
+
+### add single recipe page for selected recipe
+
+> @app.route('/recipes/<recipe_name>')    
+def recipes(recipe_name):
+    recipe = {}
+    
+  >  with open ("data", "r") as mongodb.db.recipe.find():
+        data = mongo.db.recipe.find()
+        for obj in data:
+            if obj ["url"] == recipe_name:
+                recipe = obj
+    return render_template("recipe_name.html", recipe=recipe)
+
 
 ### CREATE AN ONLINE COOKBOOK:
 

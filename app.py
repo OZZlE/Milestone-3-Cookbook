@@ -17,17 +17,31 @@ def index():
 
 @app.route('/get_recipes')
 def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+    return render_template("recipes.html", page_title="Recipes", recipes=mongo.db.recipes.find())
     
+@app.route('/get_recipes/<recipe_name>')
+def recipes(recipe_name):
+    recipe_name = {}
     
-@app.route('/add_recipes')
+    with open("mongo.db.recipes", "r") as mongodb:
+        mongo.db.recipes = recipes=mongo.db.recipes.find()
+        for obj in mongo.db.recipes:
+            if obj["url"] == recipe_name:
+                recipe_name = obj
+    return render_template("recipe_name.html", recipes=recipes, page_title="<recipe_name>")    
+
+    
+@app.route('/add_recipes', methods=["GET", "POST"])
 def add_recipes():
-    return render_template("addrecipes.html", categories=mongo.db.categories.find())
+    if request.method == "POST":
+        print("Recipe Added!")
+        
+    return render_template("addrecipes.html", page_title="Add a Recipe",  categories=mongo.db.categories.find())
     
     
 @app.route('/get_categories')
 def get_categories():
-    return render_template("categories.html", categories=mongo.db.category_name.find())
+    return render_template("categories.html", page_title="Categories" , category_names=mongo.db.categories.find())
 
        
 

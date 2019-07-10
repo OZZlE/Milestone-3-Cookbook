@@ -1,13 +1,13 @@
 {% extends 'base.html'%} {% block content %}
-<h2 class="center">Categories</h2>
+<h2 class="center">{{page_title}}</h2>
 <div class="row">
     <ul>
-        {% for category_name in categories %}
+        <!--{% for category_name in categories %}-->
         <li>
             <h4>{{categories.category_name}}</h4>
-            <img class="recipe-image" src="{{recipes.image}}"></img>
+            <img class="recipe-image" src="{{categories.image}}"></img>
         </li>
-        {% endfor %}
+        <!--{% endfor %}-->
     </ul>
 </div>
 {% endblock %}
