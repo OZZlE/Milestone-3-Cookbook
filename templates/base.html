@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/clean-blog.min.css')}}" type="text/css" />
-    
-       <!-- You can use open graph tags to customize link previews.
+
+    <!-- You can use open graph tags to customize link previews.
     Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-  <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Your Website Title" />
-  <meta property="og:description"   content="Your description" />
-  <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
-    
+    <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Your Website Title" />
+    <meta property="og:description" content="Your description" />
+    <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
+
 </head>
 
 <body>
-       <!-- Navigation -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
@@ -33,19 +33,20 @@
                         <a class="nav-link" href="{{ url_for('get_recipes') }}">View Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe</a>
+                        <a  class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe/Category</a>
                     </li>
-                     
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('get_categories') }}">View Categories</a>
+                        <a class="nav-link" href="{{ url_for('edit_recipes') }}">Edit Recipe/Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Signup/Login</a>
                     </li>
                 </ul>
             </div>
         </div>
-</nav>
+    </nav>
 
-          
-     <!-- Page Header -->
+    <!-- Page Header -->
     <header class="masthead" style="background-image:url(../static/img/fresh-food-bg.jpg) ">
         <div class="overlay"></div>
         <div class="container">
@@ -64,11 +65,11 @@
     <div class="container-fluid">
         {% block content %} {% endblock %}
     </div>
-    
+
     <hr>
- 
+
     <footer>
-       
+<p class="center footer-text">Cooked up by Derek Olson <img class="footer-image" src="../static/img/Github.png" href="https://github.com/thestarvingcoder/Milestone-3-Cookbook"></img></p>
     </footer>
 
 </body>

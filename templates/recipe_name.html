@@ -2,6 +2,7 @@
 
 <div class="row">
     <div class="col-md-5">
+        {% for _id in recipes %}
 <img class="recipe-image" src="{{recipe.image}}" alt="Profile image for {{recipe.recipe_name}}"></img>
         <h2 class="col-md-7">{{ recipe.recipe_name }}</h2>
     </div>
@@ -22,5 +23,5 @@
 <p> <b>Fat</b>: {{recipe.fat}}</p>
 <p> <b>Protien</b>: {{recipe.protein}}</p>
 </div>
-
+{% endfor %}
 {% endblock %}

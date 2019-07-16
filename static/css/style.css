@@ -37,3 +37,21 @@ ul {
 .clearfix {
   overflow: auto;
 }
+
+.footer-image {
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+}
+
+.footer-text {
+    font-style: italic;
+}
+
+.float-right {
+      float: right;
+}
+
+.float-left {
+      float: left;
+}

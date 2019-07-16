@@ -1,13 +1,142 @@
 {% extends 'base.html'%} {% block content %}
-<h2>Categories</h2>
 <div class="row">
+<div class=" center-div">
+    <h2 class="center">{{page_title}}</h2>
+    <p>Fill out the form below to edit a recipe from the database.</p>
+    <form action="" method="POST" class="col s12">
+        <br>
+        <i class="material-icons prefix">category</i>
+        <label> Category</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="category" name="category_name">
+                  <option value="" disabled selected>Choose Category</option>
+                  {% for cat in categories %}
+                    {% if cat.category_name == recipe.recipe_name %}
+                      <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                      {% else %}
+                    <option value="{{recipe.recipe_name}}">{{recipe.recipe_name}}</option>
+                      {% endif %}
+                  {% endfor %}
+                </select>
+                </div>
+            </div>
+        <br>
+        <i class="material-icons prefix">local_dining</i>
+        <label> Recipe Name</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="category" name="category_name">
+                  <option value="" disabled selected>Choose Recipe</option>
+                  {% for recipe in recipes %}
+                      <option value="{{recipe.recipe_name}}">{{recipe.recipe_name}}</option>
+                  {% endfor %}
+                </select>
+                </div>
+            </div>
+        <br>
+        <i class="material-icons prefix">add_a_photo</i>
+        <label>Add an image link</label>
+      <div class="row">
+            <div class="input-field col s12">
+<textarea name="recipe.image" id="recipe.image" class="materialize-textarea"></textarea>            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">local_dining</i>
+        <label for="icon_prefix">Recipe Name</label>
+        <div class="row">
+            <div class="input-field col s12">
+<textarea name="recipe_name" id="recipe_name" class="materialize-textarea"></textarea>            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">notes</i>
+        <label for="icon_telephone">Description</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="recipe_description" id="recipe_description" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">local_grocery_store</i>
+        <label for="icon_telephone">Ingredients</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="recipe_ingredients" id="recipe_ingredients" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">hourglass_empty</i>
+        <label for="icon_telephone">Preperation Step #1</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="recipe_preperation_1" id="recipe_preperation_1" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">hourglass_empty</i>
+        <label for="icon_telephone">Preperation Step #2</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="recipe_preperation_2" id="recipe_preperation_2" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">hourglass_empty</i>
+        <label for="icon_telephone">Preperation Step #3</label>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="recipe_preperation_3" id="recipe_preperation_3" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">hourglass_empty</i>
+        <label for="icon_telephone">Preperation Step #4</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="recipe_preperation_4" id="recipe_preperation_4" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">favorite</i>
+        <label for="icon_telephone">Calories</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="calories" name="calories" type="text" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">restaurant</i>
+        <label for="icon_telephone">Protein</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="protein" name="protein" type="text" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">cake</i>
+        <label for="icon_telephone">Carbohydrates</label>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="carbohydrates" name="carbohydrates" type="text" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <br>
+        <i class="material-icons prefix">fastfood</i>
+        <label for="icon_telephone">Fat</label>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="fat" name="fat" type="text" class="materialize-textarea"> </textarea>
+            </div>
+        </div>
+        <br>
     <ul style="list-styles-type: none">
-        {% for category_name in categories %}
-        <li>
-            <h4>{{categories.category_name}}</h4>
-            <img class="recipe-image" src="{{categories.image}}"></img>
-        </li>
-        {% endfor %}
+       <button class="waves-effect waves-light btn-small" type="submit" name="action" id="sendRecipeButton">Edit
+    <i class="material-icons right">edit</i>
+  </button>
     </ul>
+    </form>
 </div>
 {% endblock %}

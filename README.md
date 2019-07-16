@@ -69,6 +69,14 @@ def recipes(recipe_name):
                 recipe = obj
     return render_template("recipe_name.html", recipe=recipe)
 
+> # def recipes(recipe_name):
+    # recipe_name = {}
+    # with open("mongo.db.recipes", "r") as mongodb:
+    #     mongo.db.recipes = recipes=mongo.db.recipes.find()
+    #     for obj in mongo.db.recipes:
+    #         if obj["url"] == recipe_name:
+    #             recipe_name = obj
+    # recipes=recipes,
 
 ### CREATE AN ONLINE COOKBOOK:
 
