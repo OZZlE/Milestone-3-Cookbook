@@ -7,15 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/clean-blog.min.css')}}" type="text/css" />
-
-    <!-- You can use open graph tags to customize link previews.
-    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-    <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Your Website Title" />
-    <meta property="og:description" content="Your description" />
-    <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
-
 </head>
 
 <body>
@@ -33,7 +24,7 @@
                         <a class="nav-link" href="{{ url_for('get_recipes') }}">View Recipes</a>
                     </li>
                     <li class="nav-item">
-                        <a  class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe/Category</a>
+                        <a class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe/Category</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('edit_recipes') }}">Edit Recipe/Category</a>
@@ -55,6 +46,28 @@
                     <div class="site-heading">
                         <h1>Fitness Cookbook</h1>
                         <span>Create &amp; Find great recipes to keep you fit!</span>
+                        <script>
+                            function myFunction() {
+                                // Declare variables
+                                var input, filter, ul, li, a, i;
+                                input = document.getElementById("mySearch");
+                                filter = input.value.toUpperCase();
+                                ul = document.getElementById("myMenu");
+                                li = ul.getElementsByTagName("li");
+
+                                // Loop through all list items, and hide those who don't match the search query
+                                for (i = 0; i < li.length; i++) {
+                                    a = li[i].getElementsByTagName("a")[0];
+                                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                        li[i].style.display = "";
+                                    }
+                                    else {
+                                        li[i].style.display = "none";
+                                    }
+                                }
+                            }
+                        </script>
+                        <input type="text/javascript" src="../static/js/search.js" type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
                     </div>
                 </div>
             </div>
@@ -63,15 +76,33 @@
 
     <!-- Main Content -->
     <div class="container-fluid">
-        {% block content %} {% endblock %}
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("myBtn").style.display = "block";
+                }
+                else {
+                    document.getElementById("myBtn").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            }
+        </script>
+        <button type="text/javascript" src="../static/js/scrollbutton.js" onclick="topFunction()" id="myBtn" title="Go to top"> <i class="material-icons">arrow_upward</i></button> {% block content %} {% endblock %}
     </div>
 
-    <hr>
-
     <footer>
-<p class="center footer-text">Cooked up by Derek Olson <img class="footer-image" src="../static/img/Github.png" href="https://github.com/thestarvingcoder/Milestone-3-Cookbook"></img></p>
+        <!--<p class="center footer-text">Cooked up by Derek Olson-->
+        <!--    <img class="footer-image" src="../static/img/Github.png"></img>-->
+        <!--</p>-->
     </footer>
-
 </body>
 
 </html>
