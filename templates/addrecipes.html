@@ -3,7 +3,7 @@
     <h2 class="center">{{page_title}}</h2>
     <p>Fill out the form below to add a recipe to the database.</p>
     <p>If you don't know the calories, protein, carbohydrates or fat leave it blank.</p>
-    <form action="" method="POST" class="col s12">
+    <form action="{{url_for('insert_recipes')}}" method="POST" class="col s12">
         <div class="float-left">
             <br>
             <i class="material-icons prefix">category</i>

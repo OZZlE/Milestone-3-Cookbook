@@ -29,7 +29,7 @@ def edit_recipes():
     return render_template("editrecipe.html",  page_title="Edit a Recipe", recipes_id=ObjectId, edit_recipes=edit_recipes, categories=all_categories) 
 
 
-# Add Recipes Page
+# Display Add Recipes Page
 @app.route('/add_recipes', methods=["GET", "POST"])
 def add_recipes():
     if request.method == "POST":
@@ -44,8 +44,25 @@ def get_recipes_id(recipes_id):
 # Add Recipe to Database
 @app.route('/insert_recipes', methods=['POST'])
 def insert_recipes():
-    recipe =  mongo.db.recipe
-    recipe.insert_one(request.form.to_dict())
+    insert_recipes = {
+        'recipe_name':request.form.get('recipe_name'),
+        'category_names':request.form.get('category_names'),
+        'recipe_description': request.form.get('recipe_description'),
+        'recipe_image': request.form.get('recipe_image'),
+        'recipe_ingredients':request.form.get('recipe_ingredients'),
+        'recipe_preperation_1':request.form.get('recipe_preperation_1'),
+        'recipe_preperation_2':request.form.get('recipe_preperation_2'),
+        'recipe_preperation_3':request.form.get('recipe_preperation_3'),
+        'recipe_preperation_4':request.form.get('recipe_preperation_4'),
+        'recipe_amount':request.form.get('recipe_amount'),
+        'recipe_preperation_time':request.form.get('recipe_preperation_time'),
+        'recipe_cook_time':request.form.get('recipe_cook_time'),
+        'recipe_calories':request.form.get('recipe_calories'),
+        'recipe_fat':request.form.get('recipe_fat'),
+        'recipe_protein':request.form.get('recipe_protein') 
+    }
+    mongo.db.recipes.insert_one(insert_recipes)
+    print("Recipe Added!")
     return redirect(url_for('get_recipes'))
     
 # Edit Recipes from Database
