@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, send_from_directory
+from flask import Flask, render_template, redirect, request, url_for, send_from_directory, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -14,32 +14,46 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-# Get Recipes from Database
+# Display Recipes Page
 @app.route('/get_recipes')
 def get_recipes():
     return render_template("recipes.html", page_title="Recipes", recipes=mongo.db.recipes.find())
     
-# Edit Recipe Page 
-# Not Working
-@app.route('/edit_recipes', methods=["GET", "POST"])
-def edit_recipes():
-    recipes=mongo.db.recipes.find()
-    edit_recipes = mongo.db.recipes.find_one({"_id": ObjectId()})
+# Display Edit Recipe Page 
+# missing 1 required positional argument:recipes_id
+@app.route('/edit_recipes/{{recipes_id}}', methods=["GET", "POST"])
+def edit_recipes(recipes_id):
+    the_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
     all_categories =  mongo.db.categories.find()
-    return render_template("editrecipe.html",  page_title="Edit a Recipe", recipes_id=ObjectId, edit_recipes=edit_recipes, categories=all_categories) 
-
+    if request.method == "POST":
+        flash("Thanks, You have edited a recipe from the database".format(
+        ))
+    return render_template("editrecipe.html",  page_title="Edit a Recipe",recipes_id=the_recipe, categories=all_categories, recipes=mongo.db.recipes.find()) 
+    
+@app.route('/edit_task/<task_id>')
+def edit_task(task_id):
+    the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+    all_categories =  mongo.db.categories.find()
+    return render_template('edittask.html', task=the_task,
+                           categories=all_categories)
 
 # Display Add Recipes Page
 @app.route('/add_recipes', methods=["GET", "POST"])
 def add_recipes():
     if request.method == "POST":
-        print("Recipe Added!")
+        flash("Thanks, You have added a recipe to the database".format(
+        ))
     return render_template("addrecipes.html", page_title="Add a Recipe",  categories=mongo.db.categories.find())
     
 # Display Recipe Page from ID
-@app.route('/recipes/{{recipe.url}}')
-def get_recipes_id(recipes_id):
-    return render_template("recipes_name.html", page_title="{{recipes_name}}", recipes=mongo.db.recipes.find())
+@app.route('/get_recipes/{recipe_name}')
+def about_recipes(recipe_name):
+    recipe = {}
+    recipes_id = mongo.db.recipes.find()
+    for obj in recipes_id["url"] == recipe_name:
+                recipe = obj
+    return render_template("recipes_name.html", page_title="{{recipes_name}}",recipe=recipe, recipes=mongo.db.recipes.find())
+    
     
 # Add Recipe to Database
 @app.route('/insert_recipes', methods=['POST'])
@@ -68,26 +82,26 @@ def insert_recipes():
 # Edit Recipes from Database
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
-    recipes = mongo.db.recipe
-    recipes.update( {'_id': ObjectId(recipe_id)},
+    recipe = mongo.db.recipes
+    recipe.update ({'_id': ObjectId(recipe_id)},
     {
         'recipe_name':request.form.get('recipe_name'),
         'category_names':request.form.get('category_names'),
         'recipe_description': request.form.get('recipe_description'),
-        'recipe.image': request.form.get('recipe.image'),
+        'recipe_image': request.form.get('recipe_image'),
         'recipe_ingredients':request.form.get('recipe_ingredients'),
         'recipe_preperation_1':request.form.get('recipe_preperation_1'),
         'recipe_preperation_2':request.form.get('recipe_preperation_2'),
         'recipe_preperation_3':request.form.get('recipe_preperation_3'),
         'recipe_preperation_4':request.form.get('recipe_preperation_4'),
-        'recipe.amount':request.form.get('recipe.amount'),
-        'recipe.preperation_time':request.form.get('recipe.preperation_time'),
-        'recipe.cook_time':request.form.get('recipe.cook_time'),
-        'recipe.calories':request.form.get('recipe.calories'),
-        'recipe.fat':request.form.get('recipe.fat'),
-        'recipe.protein':request.form.get('recipe.protein')
+        'recipe_amount':request.form.get('recipe_amount'),
+        'recipe_preperation_time':request.form.get('recipe_preperation_time'),
+        'recipe_cook_time':request.form.get('recipe_cook_time'),
+        'recipe_calories':request.form.get('recipe_calories'),
+        'recipe_fat':request.form.get('recipe_fat'),
+        'recipe_protein':request.form.get('recipe_protein') 
     })
-    return redirect(url_for('get_recipes'))
+    return redirect(url_for('edit_recipes'))
 
 
 ###

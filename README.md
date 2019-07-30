@@ -15,67 +15,7 @@ To do:
 6. single recipe overview
 7. data overview 
 
-Code to add later:
-### create recipe 
 
-> @app.route('/insert_recipe', methods=['POST'])
-def insert_recipe():
-    recipes =  mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('get_recipes'))
-
-### edit recipe
-
-> @app.route('/edit_recipes')
-#### add <task_id> after /edit_recipes after assinging recipe_id
-def edit_recipes(recipes_id):
-    return render_template("edit_recipes.html")
-    # the_recipe =  mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
-    # all_categories =  mongo.db.categories.find()
-    # return render_template('editrecipe.html', recipe=the_recipe,
-    #                       categories=all_categories)
-
-### add recipe to database
-
-> @app.route('/update_recipe/<recipes_id>', methods=["POST"])
-def update_recipe(recipes_id):
-    recipes = mongo.db.recipes
-    recipes.update( {'_id': ObjectId(recipes_id)},
-    {
-        'recipe_name':request.form.get('recipe_name'),
-        'category_name':request.form.get('category_name'),
-        'recipe_description': request.form.get('recipe_description')
-      
-  >  })
-return redirect(url_for('get_recipes'))
-
-### link to edit recipe page
-
- > <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('edit_recipes') }}">Edit Recipe</a>
-                    </li>
-
-### add single recipe page for selected recipe
-
-> @app.route('/recipes/<recipe_name>')    
-def recipes(recipe_name):
-    recipe = {}
-    
-  >  with open ("data", "r") as mongodb.db.recipe.find():
-        data = mongo.db.recipe.find()
-        for obj in data:
-            if obj ["url"] == recipe_name:
-                recipe = obj
-    return render_template("recipe_name.html", recipe=recipe)
-
-> # def recipes(recipe_name):
-    # recipe_name = {}
-    # with open("mongo.db.recipes", "r") as mongodb:
-    #     mongo.db.recipes = recipes=mongo.db.recipes.find()
-    #     for obj in mongo.db.recipes:
-    #         if obj["url"] == recipe_name:
-    #             recipe_name = obj
-    # recipes=recipes,
 
 ### CREATE AN ONLINE COOKBOOK:
 
