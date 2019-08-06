@@ -7,13 +7,12 @@
 ##### Keep it(mongodb key) in an environment variable and use `os.getenv()` or `os.environ.get()` to fetch it.
 
 To do:
-1. like/cooked button
+1. like/cooked button (in mongodb, no button)
 2. search function (up not functioning)
 3. sort by vegitarian, high protein, low carb, etc
-4. health labels like high protien, low carb, low fat etc
-5. login / sign up (page up not functioning)
-6. single recipe overview
-7. data overview 
+4. login / sign up (page up not functioning)
+5. single recipe overview 
+6. data overview **
 
 
 

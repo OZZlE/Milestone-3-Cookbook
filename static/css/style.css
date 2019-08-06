@@ -15,11 +15,18 @@
     text-align: center;
 }
 
-.recipe-image {
+.thumbnail {
     height: 320px;
     width: 320px;
     float: right;
     padding: 10px;
+}
+
+.image {
+    max-height: 45%;
+    max-width: 45%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul {

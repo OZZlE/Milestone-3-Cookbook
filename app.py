@@ -45,15 +45,13 @@ def add_recipes():
         ))
     return render_template("addrecipes.html", page_title="Add a Recipe",  categories=mongo.db.categories.find())
     
-# Display Recipe Page from ID
-@app.route('/get_recipes/{recipe_name}')
-def about_recipes(recipe_name):
-    recipe = {}
-    recipes_id = mongo.db.recipes.find()
-    for obj in recipes_id["url"] == recipe_name:
-                recipe = obj
-    return render_template("recipes_name.html", page_title="{{recipes_name}}",recipe=recipe, recipes=mongo.db.recipes.find())
-    
+
+### Route for viewing a single recipe in detail.###
+@app.route('/recipe_page/<recipe_id>', methods=['GET', 'POST'])
+def recipe_page(recipe_id):
+    a_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('recipe_name.html', page_title="Get Cooking", recipes=a_recipe)
+
     
 # Add Recipe to Database
 @app.route('/insert_recipes', methods=['POST'])

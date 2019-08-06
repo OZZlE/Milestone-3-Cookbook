@@ -1,58 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-            <a href="">
-                <h2 class="post-title">
-                    This is an excellent go-to breakfast for those rushed mornings on the way to work.
-                </h2>
-                <h3 class="post-subtitle">
-                    Calories: 145
-                </h3>
-            </a>
-            
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="post.html">
-                <h2 class="post-title">
-                    By far one of the easiest things to cook, pulled chicken can be enjoyed in a multitude of ways.
-                </h2>
-                <h3 class="post-subtitle">
-                    Calories: 120
-                </h3>
-            </a>
-            
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="post.html">
-                <h2 class="post-title">
-                    A combination guarenteed to rev up your metabolism, this is a great rub to leep on hand.
-                </h2>
-                <h3 class="post-subtitle">
-                    Calories: 0
-                </h3>
-            </a>
-           
-        </div>
-        <hr>
-        <div class="post-preview">
-            <a href="post.html">
-                <h2 class="post-title">
-                    Chinese take out doesn't hold a candle to this amazing side dish. </h2>
-                <h3 class="post-subtitle">
-                    Calories: 50
-                </h3>
-            </a>
-           
-        </div>
-        <hr>
-        <!-- Pager -->
-        <div class="clearfix">
-            <a class="btn btn-primary float-right" href="/get_recipes">More Recipes &rarr;</a>
-        </div>
-    </div>
-</div>
+Carousel will go here
+<!--Materialize carousel-->
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, options);
+  });
+     $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+</script> 
+ <div class="carousel carousel-slider">
+    <a class="carousel-item" href="#one!">Eggs to Go<img src="../static/img/Breakfast.jpg"></a>
+    <a class="carousel-item" href="#two!">Pulled Chicken<img src="../static/img/Poultry.jpg"></a>
+    <a class="carousel-item" href="#three!">Best Beef Rub<img src="../static/img/Beef.jpg"></a>
+    <a class="carousel-item" href="#four!">Stir-Fried Broccoli<img src="../static/img/Sides.jpg"></a>
+  </div>
+ 
 {% endblock %}
