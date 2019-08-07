@@ -11,8 +11,9 @@ To do:
 2. search function (up not functioning)
 3. sort by vegitarian, high protein, low carb, etc
 4. login / sign up (page up not functioning)
-5. single recipe overview 
-6. data overview **
+5. data overview **
+6. edit recipe (page link correctly but submit button sends to edit_recipe)
+7. delete recipe
 
 
 

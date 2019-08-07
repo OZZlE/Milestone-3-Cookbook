@@ -15,11 +15,28 @@
     text-align: center;
 }
 
-.thumbnail {
+.col-md-5 {
+    width: 100%;
+}
+
+.align-right{
+      text-align: right;
+}
+
+.thumbnail-right {
     height: 320px;
     width: 320px;
-    float: right;
     padding: 10px;
+    border-radius: 25px;
+    float:right;
+}
+
+.thumbnail-left {
+    height: 320px;
+    width: 320px;
+    padding: 10px;
+    border-radius: 25px;
+    float:left;  
 }
 
 .image {
@@ -27,6 +44,7 @@
     max-width: 45%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 25px;
 }
 
 ul {

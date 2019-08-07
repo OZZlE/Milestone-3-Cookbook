@@ -21,21 +21,15 @@ def get_recipes():
     
 # Display Edit Recipe Page 
 # missing 1 required positional argument:recipes_id
-@app.route('/edit_recipes/{{recipes_id}}', methods=["GET", "POST"])
-def edit_recipes(recipes_id):
-    the_recipe=mongo.db.recipes.find_one({"_id": ObjectId(recipes_id)})
+@app.route('/edit_recipes/<recipe_id>', methods=["GET", "POST"])
+def edit_recipes(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     all_categories =  mongo.db.categories.find()
     if request.method == "POST":
         flash("Thanks, You have edited a recipe from the database".format(
         ))
-    return render_template("editrecipe.html",  page_title="Edit a Recipe",recipes_id=the_recipe, categories=all_categories, recipes=mongo.db.recipes.find()) 
-    
-@app.route('/edit_task/<task_id>')
-def edit_task(task_id):
-    the_task =  mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
-    all_categories =  mongo.db.categories.find()
-    return render_template('edittask.html', task=the_task,
-                           categories=all_categories)
+    return render_template("editrecipe.html",  page_title="Edit", recipe=the_recipe, categories=all_categories) 
+
 
 # Display Add Recipes Page
 @app.route('/add_recipes', methods=["GET", "POST"])
@@ -46,7 +40,7 @@ def add_recipes():
     return render_template("addrecipes.html", page_title="Add a Recipe",  categories=mongo.db.categories.find())
     
 
-### Route for viewing a single recipe in detail.###
+# Route for viewing a single recipe in detail.
 @app.route('/recipe_page/<recipe_id>', methods=['GET', 'POST'])
 def recipe_page(recipe_id):
     a_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -99,7 +93,7 @@ def update_recipe(recipe_id):
         'recipe_fat':request.form.get('recipe_fat'),
         'recipe_protein':request.form.get('recipe_protein') 
     })
-    return redirect(url_for('edit_recipes'))
+    return redirect(url_for('/recipe_page/<recipe_id>'))
 
 
 ###

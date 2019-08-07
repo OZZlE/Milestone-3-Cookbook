@@ -1,25 +1,35 @@
 {% extends 'base.html' %} {% block content %} 
 <h2 class="center">{{page_title}}</h2>
-<div class="col-md-12">
-{% for recipe in recipes %}
-<h3> {{recipe.category_name}}</h3>
-<img class="thumbnail" src="{{recipe.image}}" alt="Profile image for {{recipe.recipe_name}}"></img>
-<h4><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}">
-{{recipe.recipe_name}}</a></h4>
-<p> <i>{{recipe.recipe_description}}</i></p>
-<p><b>Ingredients</b>: {{recipe.recipe_ingredients}}</p>
-<p><b>Preperation</b>: {{recipe.recipe_preperation_1}}</p>
-<p> {{recipe.recipe_preperation_2}}</p>
-<p> {{recipe.recipe_preperation_3}}</p>
-<p> {{recipe.recipe_preperation_4}}</p>
-<p> <b>Amount</b>: {{recipe.amount}}</p>
-<p> <b>Prep Time</b>: {{recipe.preperation_time}}</p>
-<p> <b>Cook Time</b>: {{recipe.cook_time}}</p>
-<p> <b>Calories</b>: {{recipe.calories}}</p>
-<p> <b>Carbohydrates</b>: {{recipe.carbohydrates}}</p>
-<p> <b>Fat</b>: {{recipe.fat}}</p>
-<p> <b>Protien</b>: {{recipe.protein}}</p>
-<p><b>Labels</b>:{{recipe.label}}</p>
-<p><b>Cooked</b>:{{recipe.cooked}}</p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+{% for recipe in recipes %}  {% if loop.index % 2 != 0 %}
+<div class="row featurette">
+    <div class="col-md-7">
+        <h3><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}">{{ loop.index }}. {{ recipe.recipe_name }}</a></h3>
+        <p><i>{{ recipe.recipe_description }}</i></p>
+<p> <b>Cooked</b>: {{recipe.cooked}}</p>
+    </div>
+    <div class="col-md-5">
+        <img class="featurette-image thumbnail-right" src="{{ recipe.image }}" alt="Picture of {{ recipe.name }}">
+    </div>
 </div>
-{% endfor %}{% endblock %}
+{% else %}
+<div class="row featurette">
+    <div class="col-md-5">
+        <img class="featurette-image thumbnail-left" src="{{ recipe.image }}" alt="Picture of {{ recipe.name }}">
+    </div>
+    <div class="col-md-7 align-right">
+        <h3><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}">{{ loop.index }}. {{ recipe.recipe_name }}</a></h3>
+        <p></i>{{ recipe.recipe_description }}</i></p>
+<p> <b>Cooked</b>: {{recipe.cooked}}</p>
+    </div>
+</div>
+
+{% endif %} {% if loop.index != 13 %}
+<hr class="featurette-divider"> {% endif %} {% endfor %}
+</div>
+</div>
+</div>
+{% endblock %}
+
