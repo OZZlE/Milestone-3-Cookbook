@@ -20,7 +20,6 @@ def get_recipes():
     return render_template("recipes.html", page_title="Recipes", recipes=mongo.db.recipes.find())
     
 # Display Edit Recipe Page 
-# missing 1 required positional argument:recipes_id
 @app.route('/edit_recipes/<recipe_id>', methods=["GET", "POST"])
 def edit_recipes(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -71,13 +70,15 @@ def insert_recipes():
     print("Recipe Added!")
     return redirect(url_for('get_recipes'))
     
+
 # Edit Recipes from Database
+#sends to update_recipe page?
 @app.route('/update_recipe/<recipe_id>', methods=["POST"])
 def update_recipe(recipe_id):
-    recipe = mongo.db.recipes
-    recipe.update ({'_id': ObjectId(recipe_id)},
-    {
-        'recipe_name':request.form.get('recipe_name'),
+	if request.method == "POST":
+            recipe = mongo.db.recipes
+            recipe.update_one({'_id': ObjectId(recipe_id)},
+       {'recipe_name':request.form.get('recipe_name'),
         'category_names':request.form.get('category_names'),
         'recipe_description': request.form.get('recipe_description'),
         'recipe_image': request.form.get('recipe_image'),
@@ -91,9 +92,9 @@ def update_recipe(recipe_id):
         'recipe_cook_time':request.form.get('recipe_cook_time'),
         'recipe_calories':request.form.get('recipe_calories'),
         'recipe_fat':request.form.get('recipe_fat'),
-        'recipe_protein':request.form.get('recipe_protein') 
-    })
-    return redirect(url_for('/recipe_page/<recipe_id>'))
+        'recipe_protein':request.form.get('recipe_protein')})
+            return redirect(url_for('get_recipes'))
+	return render_template('_recipes')
 
 
 ###
