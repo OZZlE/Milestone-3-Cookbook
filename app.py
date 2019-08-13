@@ -29,6 +29,16 @@ def edit_recipes(recipe_id):
         ))
     return render_template("editrecipe.html",  page_title="Edit", recipe=the_recipe, categories=all_categories) 
 
+# Display Delete Recipe Page 
+@app.route('/delete_recipes/<recipe_id>', methods=["GET", "POST"])
+def delete_recipes(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    all_categories =  mongo.db.categories.find()
+    if request.method == "POST":
+        flash("Thanks, You have deleted a recipe from the database".format(
+        ))
+    return render_template("deleterecipe.html",  page_title="Delete", recipe=the_recipe, categories=all_categories)
+
 
 # Display Add Recipes Page
 @app.route('/add_recipes', methods=["GET", "POST"])
@@ -73,7 +83,7 @@ def insert_recipes():
 
 # Edit Recipes from Database
 #sends to update_recipe page?
-@app.route('/update_recipe/<recipe_id>', methods=["POST"])
+@app.route('/update_recipe/<recipe_id>', methods=['PUT'])
 def update_recipe(recipe_id):
 	if request.method == "POST":
             recipe = mongo.db.recipes
@@ -94,16 +104,18 @@ def update_recipe(recipe_id):
         'recipe_fat':request.form.get('recipe_fat'),
         'recipe_protein':request.form.get('recipe_protein')})
             return redirect(url_for('get_recipes'))
-	return render_template('_recipes')
+	return render_template('edit_recipes')
 
 
 ###
 
 # Delete Recipe from Database
-@app.route('/delete_recipe/<recipes_id>')
-def delete_recipe(recipes_id):
-    mongo.db.recipe.remove({'_id': ObjectId(recipes_id)})
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
+    
+    
 
 # Get Category from Database
 @app.route('/get_categories')

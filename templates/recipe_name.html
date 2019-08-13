@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-<div class="row">
-    <img class="image " src="{{ recipes.image }}" alt="Profile image for {{recipes.recipe_name}}"></img>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                    <img class="image" src="{{ recipes.image }}" alt="Profile image for {{recipes.recipe_name}}"></img>
 <div class="col-md-12">
     <br>
 <h2 class="center">{{page_title}} {{ recipes.recipe_name }}</h2>
@@ -21,6 +24,13 @@
 <p> <b>Labels</b>:{{recipes.label}}</p>
 <p> <b>Cooked</b>:{{recipes.cooked}}</p>
 </div>
-<a href="{{ url_for('edit_recipes', recipe_id=recipes._id)}}"><i class="material-icons right">edit</i><b>Edit {{ recipes.recipe_name }}</b></a>
+
+</div>
+<p class="center"><button class="btn waves-effect waves-light" type="button" name="url" id="editRecipeButton"><a href="{{ url_for('edit_recipes', recipe_id=recipes._id)}}"><i class="material-icons right">edit</i><b>Edit {{ recipes.recipe_name }}</b></a></button>
+<br>
+<button class="btn waves-effect waves-light" type="button" name="url" id="deleteRecipeButton"><a href="{{ url_for('delete_recipes', recipe_id=recipes._id)}}" ><i class="material-icons right">delete</i><b>Delete {{ recipes.recipe_name }}</b></a></button>
+</p>
+</div>
+</div>
 </div>
 {% endblock %}

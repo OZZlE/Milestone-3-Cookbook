@@ -1,8 +1,41 @@
 {% extends 'base.html' %} {% block content %}
-<h2 class="center">{{page_title}}</h2>
-<div class="row">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+			    <div class="col-md-3">
+			        <h2 class="center">Login</h2>
+				</div>
+
+<!--Login-->
+<form class="col-md-3">
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="email">Email</label>
+            <br>
+            <input placeholder="Johndoe@mail.com" id="email" type="email" class="validate">
+        </div>
+    </div>
+    <br>
+    <div class=" row">
+        <div class="input-field col s12">
+            <label for="password">Password</label>
+            <br>
+            <input placeholder="**********" id="password" type="password" class="validate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="sendRecipeButton">Login
+    <i class="material-icons right">send</i>
+  </button>
+        <br>
+    </div>
+</form>
+
 <!--Sign up-->
-<form class="col s6">
+<form class="col-md-3">
+    
     <div class="row">
         <div class="input-field col s12">
             <label for="first_name">First Name</label>
@@ -55,32 +88,12 @@
   </button>
     </div>
 </form>
-<!--<div class="col s6"></div>-->
 
-<!--Login-->
-<form class="col s6">
-    <div class="row">
-        <div class="input-field col s12">
-            <label for="email">Email</label>
-            <br>
-            <input placeholder="Johndoe@mail.com" id="email" type="email" class="validate">
-        </div>
-    </div>
-    <br>
-    <div class=" row">
-        <div class="input-field col s12">
-            <label for="password">Password</label>
-            <br>
-            <input placeholder="**********" id="password" type="password" class="validate">
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="sendRecipeButton">Login
-    <i class="material-icons right">send</i>
-  </button>
-        <br>
-    </div>
-</form>
+<div class="col-md-3">
+    			        <h2 class="center">SignUp</h2>
+				</div>
+</div>
+</div>
+</div>
 </div>
 {% endblock %}

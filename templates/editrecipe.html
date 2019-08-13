@@ -127,6 +127,8 @@
                             <button class="btn waves-effect waves-light" type="submit" name="action" id="editRecipeButton">Submit
     <i class="material-icons right">send</i>
   </button>
+                            <br>
+                            <button class="btn waves-effect waves-light" type="button" name="url" id="goBack"><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"><i class="material-icons right">arrow_back</i><b>No! Take me back!</b></a></button>
                         </div>
                     </form>
                     <div class="col-md-4">

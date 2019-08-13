@@ -12,8 +12,10 @@ To do:
 3. sort by vegitarian, high protein, low carb, etc
 4. login / sign up (page up not functioning)
 5. data overview **
+------------------
+button actions send urls not form actions...?
 6. edit recipe (page link correctly but submit button sends to edit_recipe)
-7. delete recipe
+7. delete recipe (page up button not working)
 
 
 
