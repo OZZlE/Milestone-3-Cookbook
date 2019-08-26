@@ -3,149 +3,154 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-4">
-                </div>
-<div class=" center-div">
-    <h2 class="">{{page_title}}</h2>
-    <p>Fill out the form below to add a recipe to the database.</p>
-    <p>If you don't know the calories, protein, carbohydrates or fat leave it blank.</p>
-    <form action="{{url_for('insert_recipes')}}" method="POST" class="col-md-4">
-        <div class="float-left">
-            <br>
-            <i class="material-icons prefix">category</i>
-            <label> Category</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <select id="category" name="category_name">
+                <div class=" center-div">
+                    <h2 class="">{{page_title}}</h2>
+                    <p>Fill out the form below to add a recipe to the database.</p>
+                    <p>If you don't know the calories, protein, carbohydrates or fat leave it blank.</p>
+                    <form action="{{url_for('insert_recipes')}}" method="POST" class="col-md-12">
+                        <br>
+                        <i class="material-icons prefix">category</i>
+                        <label> Category</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select id="category" name="category_name" class="browser-default">
                   <option value="" disabled selected>Choose Category</option>
                   {% for cat in categories %}
                       <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                   {% endfor %}
                 </select>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="right">
-            <i class="material-icons prefix">add_a_photo</i>
-            <label>Add an image link</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe.image" id="recipe.image" class="materialize-input"></input>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="left">
-            <i class="material-icons prefix">local_dining</i>
-            <label for="icon_prefix">Recipe Name</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe_name" id="recipe_name" class="materialize-input"></input>
-                </div>
-            </div>
-        </div>
-            <br>
-            <i class="material-icons prefix">notes</i>
-            <label for="icon_telephone">Description</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <textarea name="recipe_description" id="recipe_description" class="materialize-textarea"></textarea>
-                </div>
-            </div>
-            <br>
-             <i class="material-icons prefix">label</i>
-            <label for="icon_telephone">Labels</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe_label" id="recipe_label" class="materialize-input"></input>
-                </div>
-            </div>
-        <br>
-            <i class="material-icons prefix">local_grocery_store</i>
-            <label for="icon_telephone">Ingredients</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe_ingredients" id="recipe_ingredients" class="materialize-input"></input>
-                </div>
-            </div>
-        <br>
-            <i class="material-icons prefix">hourglass_empty</i>
-            <label for="icon_telephone">Preperation Step #1</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe_preperation_1" id="recipe_preperation_1" class="materialize-input"></input>
-                </div>
-            </div>
-            <br>
-            <i class="material-icons prefix">hourglass_empty</i>
-            <label for="icon_telephone">Preperation Step #2</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe_preperation_2" id="recipe_preperation_2" class="materialize-input"></input>
-                </div>
-            </div>
-            <br>
-            <i class="material-icons prefix">hourglass_empty</i>
-            <label for="icon_telephone">Preperation Step #3</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe_preperation_3" id="recipe_preperation_3" class="materialize-input"></input>
-                </div>
-            </div>
-                <br>
-            <i class="material-icons prefix">hourglass_empty</i>
-            <label for="icon_telephone">Preperation Step #4</label>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="recipe_preperation_4" id="recipe_preperation_4" class="materialize-input"></input>
-                </div>
-            </div>
-        <br>
-            <i class="material-icons prefix">favorite</i>
-            <label for="icon_telephone">Calories</label>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="calories" name="calories" type="text" class="materialize-input"></input>
-                </div>
-            </div>
-        <br>
-            <i class="material-icons prefix">restaurant</i>
-            <label for="icon_telephone">Protein</label>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="protein" name="protein" type="text" class="materialize-input"></input>
-                </div>
-            </div>
-        <br>
-            <i class="material-icons prefix">cake</i>
-            <label for="icon_telephone">Carbohydrates</label>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="carbohydrates" name="carbohydrates" type="text" class="materialize-input"></input>
-                </div>
-            </div>
-        <br>
-            <i class="material-icons prefix">fastfood</i>
-            <label for="icon_telephone">Fat</label>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="fat" name="fat" type="text" class="materialize-input"> </input>
-                </div>
-            </div>
-        </div>
-        <br>
-                <div class="">
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="sendRecipeButton">Submit
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">add_a_photo</i>
+                        <label for="recipe_image">Add an image link</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe.image" id="recipe.image" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">local_dining</i>
+                        <label for="recipe_name">Recipe Name</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_name" id="recipe_name" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">notes</i>
+                        <label for="recipe_description">Description</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <textarea name="recipe_description" id="recipe_description" class="materialize-textarea"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">access_time</i>
+                        <label for="recipe_cook_time">Cook Time (in minutes)</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_cook_time" id="recipe_cook_time" class="materialize-input" type="number"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">access_time</i>
+                        <label for="recipe_cook_time_string">Cook Time</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_cook_time_string" id="recipe_cook_time_string" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">label</i>
+                        <label for="recipe_label">Labels</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_label" id="recipe_label" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">local_grocery_store</i>
+                        <label for="recipe_ingredients">Ingredients</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_ingredients" id="recipe_ingredients" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_1">Preperation Step #1</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_preperation_1" id="recipe_preperation_1" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_2">Preperation Step #2</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_preperation_2" id="recipe_preperation_2" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_3">Preperation Step #3</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_preperation_3" id="recipe_preperation_3" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_4">Preperation Step #4</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="recipe_preperation_4" id="recipe_preperation_4" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">favorite</i>
+                        <label for="calories">Calories</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="calories" name="calories" type="text" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">restaurant</i>
+                        <label for="protein">Protein</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="protein" name="protein" type="text" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">cake</i>
+                        <label for="carbohydrates">Carbohydrates</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="carbohydrates" name="carbohydrates" type="text" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <i class="material-icons prefix">fastfood</i>
+                        <label for="fat">Fat</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="fat" name="fat" type="text" class="materialize-input"> </input>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="sendRecipeButton">Submit
     <i class="material-icons right">send</i>
   </button>
-  </div>
-    </form>
-    <div class="col-md-4">
-                    </div>
+  <button class="btn waves-effect waves-light btn-large red float-right"   id="resetButton" input type="reset"> Reset <i class="material-icons right">clear</i></button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}

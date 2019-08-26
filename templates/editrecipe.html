@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-4">
-                </div>
+                <!--<div class="col-md-4">-->
+                <!--</div>-->
                 <div class="center-div">
-                    <h2 class="">{{page_title}} {{recipe.recipe_name}}</h2>
-                    <p class="">Fill out the form below to edit a recipe from the database.</p>
-                    <form action="{{ url_for('update_recipe', recipe_id=_id) }}" method="POST" class="col-md-4">
+                    <h2>{{page_title}} {{recipe.recipe_name}}</h2>
+                    <p>Fill out the form below to edit a recipe from the database.</p>
+                    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col-md-12">
                         <br>
                         <i class="material-icons prefix">category</i>
                         <label>Category</label>
@@ -115,24 +115,18 @@
                                 <input id="fat" name="fat" type="text" class="materialize-input" value="{{recipe.fat}}">
                             </div>
                         </div>
-                        {% with messages = get_flashed_messages() %} {% if messages %}
-                        <ul class="flashes">
-                            {% for message in messages %}
-                            <li>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %} {% endwith %}
                         <br>
-                        <div class="center">
-                            <button class="btn waves-effect waves-light" type="submit" name="action" id="editRecipeButton">Submit
+                        <div>
+                            <!--Go Back-->
+                            <a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"><button class="btn waves-effect waves-light btn-large float-left" type="button" name="url" id="goBack"><i class="material-icons left">arrow_back</i><b>No! Take me back!</b></button></a>
+                            <!--Submit-->
+                            <button class="btn waves-effect waves-light btn-large green float-right" type="submit" name="action" id="editRecipeButton">Submit
     <i class="material-icons right">send</i>
   </button>
-                            <br>
-                            <button class="btn waves-effect waves-light" type="button" name="url" id="goBack"><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"><i class="material-icons right">arrow_back</i><b>No! Take me back!</b></a></button>
                         </div>
                     </form>
-                    <div class="col-md-4">
-                    </div>
+                    <!--<div class="col-md-4">-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>

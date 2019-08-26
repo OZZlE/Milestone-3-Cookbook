@@ -1,22 +1,31 @@
 {% extends 'base.html' %} {% block content %}
-
-Carousel will go here
-<!--Materialize carousel-->
-<script>
- document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, options);
-  });
-     $('.carousel.carousel-slider').carousel({
-    fullWidth: true,
-    indicators: true
-  });
-</script> 
- <div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!">Eggs to Go<img src="../static/img/Breakfast.jpg"></a>
-    <a class="carousel-item" href="#two!">Pulled Chicken<img src="../static/img/Poultry.jpg"></a>
-    <a class="carousel-item" href="#three!">Best Beef Rub<img src="../static/img/Beef.jpg"></a>
-    <a class="carousel-item" href="#four!">Stir-Fried Broccoli<img src="../static/img/Sides.jpg"></a>
-  </div>
- 
+<div class="container-fluid">
+    <h2 class="center">{{page_title}}</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <!--Featured Recipe-->
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="" src="../static/img/Poultry.jpg">
+                            <span class="card-title">Pulled Chicken</span>
+                        </div>
+                        <div class="card-content">
+                            <p> By far one of the easiest things to cook, pulled chicken can be enjoyed in a multitude of ways.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ url_for('get_recipes') }}">View more Recipes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}

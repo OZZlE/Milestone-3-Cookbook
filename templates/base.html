@@ -2,12 +2,41 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="../static/img/favicon-32x32.png?">
+    <!--Materialize Icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Materialize Icons-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.css" media="screen,projection" />
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--Queue CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" type="text/css" />
+    <!--JMaterialize JavaScript -->
+    <script type="text/javascript" src="../static/js/materialize.js"></script>
+
+    <!--D3-->
+    <script type="text/javascript" src="../static/js/d3.js" charset="utf-8"></script>
+    <!--Crossfilter-->
+    <script type="text/javascript" src="../static/js/crossfilter.js"></script>
+    <!--DC-->
+    <script type="text/javascript" src="../static/js/dc.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/dc.css" />
+
+
+    <!--Queue-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+
+    <!--Custom CSS-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/clean-blog.min.css')}}" type="text/css" />
+
 </head>
 
 <body>
@@ -28,6 +57,7 @@
                         <a class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('data') }}">Data</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('login') }}">Signup/Login</a>
@@ -46,28 +76,28 @@
                     <div class="site-heading">
                         <h1>Fitness Cookbook</h1>
                         <span>Create &amp; Find great recipes to keep you fit!</span>
-                        <script>
-                            function myFunction() {
-                                // Declare variables
-                                var input, filter, ul, li, a, i;
-                                input = document.getElementById("mySearch");
-                                filter = input.value.toUpperCase();
-                                ul = document.getElementById("myMenu");
-                                li = ul.getElementsByTagName("li");
+                        <!--<script>-->
+                        <!--    function myFunction() {-->
+                                <!--// Declare variables-->
+                        <!--        var input, filter, ul, li, a, i;-->
+                        <!--        input = document.getElementById("mySearch");-->
+                        <!--        filter = input.value.toUpperCase();-->
+                        <!--        ul = document.getElementById("myMenu");-->
+                        <!--        li = ul.getElementsByTagName("li");-->
 
-                                // Loop through all list items, and hide those who don't match the search query
-                                for (i = 0; i < li.length; i++) {
-                                    a = li[i].getElementsByTagName("a")[0];
-                                    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                                        li[i].style.display = "";
-                                    }
-                                    else {
-                                        li[i].style.display = "none";
-                                    }
-                                }
-                            }
-                        </script>
-                        <input type="text/javascript" src="../static/js/search.js" type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+                                <!--// Loop through all list items, and hide those who don't match the search query-->
+                        <!--        for (i = 0; i < li.length; i++) {-->
+                        <!--            a = li[i].getElementsByTagName("a")[0];-->
+                        <!--            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {-->
+                        <!--                li[i].style.display = "";-->
+                        <!--            }-->
+                        <!--            else {-->
+                        <!--                li[i].style.display = "none";-->
+                        <!--            }-->
+                        <!--        }-->
+                        <!--    }-->
+                        <!--</script>-->
+                        <!--<input type="text/javascript" type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">-->
                     </div>
                 </div>
             </div>
@@ -76,6 +106,7 @@
 
     <!-- Main Content -->
     <div class="container-fluid">
+
         <script>
             // When the user scrolls down 20px from the top of the document, show the button
             window.onscroll = function() { scrollFunction() };
@@ -98,11 +129,32 @@
         <button type="text/javascript" src="../static/js/scrollbutton.js" onclick="topFunction()" id="myBtn" title="Go to top"> <i class="material-icons">arrow_upward</i></button> {% block content %} {% endblock %}
     </div>
 
-    <footer>
-        <p class="center footer-text">Cooked up by Derek Olson
-            <img class="footer-image" src="../static/img/Github.png"></img>
-        </p>
+
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Fitness Cookbook</h5>
+                    <p class="grey-text text-lighten-4">Cooked up by Derek Olson <i class="fa fa-github-square 5x" aria-hidden="true"></i></p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Follow Us!</h5>
+                    <ul>
+                        <li> <i class="fa fa-facebook-square 5x" aria-hidden="true"></i></li>
+                        <li> <i class="fa fa-twitter-square" aria-hidden="true"></i></li>
+                        <li> <i class="fa fa-instagram" aria-hidden="true"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright
+            </div>
+        </div>
     </footer>
+
 </body>
 
 </html>
