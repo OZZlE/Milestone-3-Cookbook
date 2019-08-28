@@ -1,61 +1,86 @@
 {% extends 'base.html' %} {% block content %}
+
 <div class="container-fluid">
-    <h2 class="center">{{page_title}}</h2>
+    <h1 class="center">{{page_title}}</h1>
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <p>Here is the data</p>
-                <div class="col-md-4">
-                </div>
-                <div class="col-md-4">
-                                    <p>Here is the data</p>
-
-                    <!--Does not work!-->
+                <!--<div class="col-md-4">-->
+                <!--</div>-->
+                <div class="col-md-12">
                     <!--Data View-->
                     <div>
-                        <div id="bar"></div>
+                        <div style="width: 600px;">
+                            <div id="mystats" class="dc-data-count" style="float: right">
+                                <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
+               dc.renderAll();">Reset All</a>
+                            </div>
+                        </div>
+
+                        <div style="clear: both; padding-top: 20px;">
+                            <div>
+                                <div id="line"></div>
+                            </div>
+                        </div>
+
+                        <div style="clear: both">
+                            <div id="mytable"></div>
+                        </div>
                     </div>
-                    <!--D3-->
-                    <script type="text/javascript" src="../static/js/d3.js" charset="utf-8"></script>
-                    <!--Crossfilter-->
-                    <script type="text/javascript" src="../static/js/crossfilter.js"></script>
-                    <!--DC-->
-                    <script type="text/javascript" src="../static/js/dc.min.js" charset="utf-8"></script>
-                    <link rel="stylesheet" type="text/css" href="../static/css/dc.css" />
 
                     <script language="javascript">
-                        var chart = dc.barChart('#bar');
+                        var barChart = dc.barChart('#line'); // , 'myChartGroup');
+                        var countChart = dc.dataCount("#mystats");
+                        var tableChart = dc.dataTable("#mytable");
 
-                        d3.csv("../static/data/people.csv", function(errors, people) {
+                        d3.csv("data/people.csv", function(errors, people) {
                             var mycrossfilter = crossfilter(people);
 
+                            // age dimension
                             var ageDimension = mycrossfilter.dimension(function(data) {
-                                return ~~((Date.now() - new Date(data.DOB)) / (31557600000));
+                                return ~~((Date.now() - new Date(data.DOB)) / (31557600000))
                             });
                             var ageGroup = ageDimension.group().reduceCount();
 
-                            chart
-                                .width(800)
-                                .height(300)
+                            barChart
+                                .width(400)
+                                .height(200)
                                 .x(d3.scale.linear().domain([15, 70]))
-                                .brushOn(false)
                                 .yAxisLabel("Count")
                                 .xAxisLabel("Age")
+                                .elasticY(true)
+                                .elasticX(true)
                                 .dimension(ageDimension)
-                                .group(ageGroup)
-                                .on('renderlet', function(chart) {
-                                    chart.selectAll('rect').on('click', function(d) {
-                                        console.log('click!', d);
-                                    });
-                                });
-                            chart.render();
+                                .group(ageGroup);
+
+                            countChart
+                                .dimension(mycrossfilter)
+                                .group(mycrossfilter.groupAll());
+
+                            tableChart
+                                .dimension(ageDimension)
+                                .group(function(data) {
+                                    return ~~((Date.now() - new Date(data.DOB)) / (31557600000));
+                                })
+                                .size(Infinity)
+                                .columns(['name', 'DOB'])
+                                .sortBy(function(d) {
+                                    return d.value;
+                                })
+                                .order(d3.ascending);
+
+                            barChart.render();
+                            countChart.render();
+                            tableChart.render();
                         });
                     </script>
 
+
+
                 </div>
             </div>
-            <div class="col-md-4">
-            </div>
+            <!--<div class="col-md-4">-->
+            <!--</div>-->
         </div>
     </div>
 </div>

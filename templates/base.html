@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <!--favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="../static/img/favicon-32x32.png?">
     <!--Materialize Icons-->
@@ -16,29 +14,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <!-- Font Awesome -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!--Queue CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" type="text/css" />
-    <!--JMaterialize JavaScript -->
-    <script type="text/javascript" src="../static/js/materialize.js"></script>
-
-    <!--D3-->
-    <script type="text/javascript" src="../static/js/d3.js" charset="utf-8"></script>
-    <!--Crossfilter-->
-    <script type="text/javascript" src="../static/js/crossfilter.js"></script>
-    <!--DC-->
-    <script type="text/javascript" src="../static/js/dc.min.js" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" href="../static/css/dc.css" />
-
-
-    <!--Queue-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-
+    <!--DC CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.2.2/dc.min.css" />
     <!--Custom CSS-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/clean-blog.min.css')}}" type="text/css" />
-
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -66,7 +47,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Page Header -->
     <header class="masthead" style="background-image:url(../static/img/fresh-food-bg.jpg) ">
         <div class="overlay"></div>
@@ -76,41 +56,16 @@
                     <div class="site-heading">
                         <h1>Fitness Cookbook</h1>
                         <span>Create &amp; Find great recipes to keep you fit!</span>
-                        <!--<script>-->
-                        <!--    function myFunction() {-->
-                                <!--// Declare variables-->
-                        <!--        var input, filter, ul, li, a, i;-->
-                        <!--        input = document.getElementById("mySearch");-->
-                        <!--        filter = input.value.toUpperCase();-->
-                        <!--        ul = document.getElementById("myMenu");-->
-                        <!--        li = ul.getElementsByTagName("li");-->
-
-                                <!--// Loop through all list items, and hide those who don't match the search query-->
-                        <!--        for (i = 0; i < li.length; i++) {-->
-                        <!--            a = li[i].getElementsByTagName("a")[0];-->
-                        <!--            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {-->
-                        <!--                li[i].style.display = "";-->
-                        <!--            }-->
-                        <!--            else {-->
-                        <!--                li[i].style.display = "none";-->
-                        <!--            }-->
-                        <!--        }-->
-                        <!--    }-->
-                        <!--</script>-->
-                        <!--<input type="text/javascript" type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">-->
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
     <!-- Main Content -->
     <div class="container-fluid">
-
         <script>
             // When the user scrolls down 20px from the top of the document, show the button
             window.onscroll = function() { scrollFunction() };
-
             function scrollFunction() {
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                     document.getElementById("myBtn").style.display = "block";
@@ -128,9 +83,7 @@
         </script>
         <button type="text/javascript" src="../static/js/scrollbutton.js" onclick="topFunction()" id="myBtn" title="Go to top"> <i class="material-icons">arrow_upward</i></button> {% block content %} {% endblock %}
     </div>
-
-
-
+<!--Footer-->
     <footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -154,7 +107,15 @@
             </div>
         </div>
     </footer>
-
+    <!-- SCRIPTS -->
+    <!--JMaterialize JavaScript -->
+    <script type="text/javascript" src="../static/js/materialize.js"></script>
+    <!-- must load in this order: D3 | CROSSFILTER | DC -->
+    <!--D3-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js" charset="utf-8"></script>
+    <!--Crossfilter-->
+    <script type="text/javascript" src="../static/js/crossfilter.js"></script>
+    <!--DC-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.2.2/dc.min.js" charset="utf-8"></script>
 </body>
-
 </html>
