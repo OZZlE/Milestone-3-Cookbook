@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/clean-blog.min.css')}}" type="text/css" />
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -66,6 +68,7 @@
         <script>
             // When the user scrolls down 20px from the top of the document, show the button
             window.onscroll = function() { scrollFunction() };
+
             function scrollFunction() {
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                     document.getElementById("myBtn").style.display = "block";
@@ -83,7 +86,7 @@
         </script>
         <button type="text/javascript" src="../static/js/scrollbutton.js" onclick="topFunction()" id="myBtn" title="Go to top"> <i class="material-icons">arrow_upward</i></button> {% block content %} {% endblock %}
     </div>
-<!--Footer-->
+    <!--Footer-->
     <footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -107,7 +110,9 @@
             </div>
         </div>
     </footer>
+
     <!-- SCRIPTS -->
+
     <!--JMaterialize JavaScript -->
     <script type="text/javascript" src="../static/js/materialize.js"></script>
     <!-- must load in this order: D3 | CROSSFILTER | DC -->
@@ -117,5 +122,9 @@
     <script type="text/javascript" src="../static/js/crossfilter.js"></script>
     <!--DC-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.2.2/dc.min.js" charset="utf-8"></script>
+    <!--Modal JS-->
+    <script type="text/javascript" src="../static/js/modal.js"></script>
+
 </body>
+
 </html>

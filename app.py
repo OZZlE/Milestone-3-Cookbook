@@ -148,7 +148,7 @@ def data():
 # Display Login Page
 @app.route("/login")
 def login():
-    return render_template('login.html', page_title="Signup or Login")
+    return render_template('login.html', page_title="Login or Signup")
 
 
 if __name__ == '__main__':
