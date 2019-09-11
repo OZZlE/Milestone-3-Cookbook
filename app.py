@@ -1,19 +1,24 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, send_from_directory, flash
+import bcrypt
+from flask import Flask, render_template, redirect, request, url_for, send_from_directory, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'cook_book'
 app.config["MONGO_URI"] = os.getenv ('MONGO_URI','mongodb+srv://root:root@myfirstcluster-vay7y.mongodb.net/cook_book?retryWrites=true&w=majority')
+app.secret_key = "super secret key"
 
 mongo = PyMongo(app)
+
+
 
 #Display Home page
 @app.route('/', methods=["GET", "POST"])
 def index():
     the_recipe = mongo.db.recipes.find()
-    return render_template("index.html", page_title="Featured Recipe",  recipe = the_recipe)
+    return render_template("index.html", page_title="Get fit with Fitness Cookbook",  recipe = the_recipe)
 
 
 # Display Recipes Page
@@ -146,10 +151,49 @@ def data():
     return render_template('data.html', page_title="Data Overview")    
     
 # Display Login Page
-@app.route("/login")
-def login():
-    return render_template('login.html', page_title="Login or Signup")
 
+# Login a User
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        users =mongo.db.users
+        user_login = users.find_one({'name' : request.form['username']})
+        
+        if user_login:
+            if bcrypt.hashpw(request.form['pass'].encode('utf-8'), user_login['password']) == user_login['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for('index'))
+            flash('Invalid username/password combination')
+    return render_template('login.html', page_title="Please Login")
+    
+# Logout a User
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+# Display Sign up Page
+@app.route("/signup")
+def signup():
+    return render_template('signup.html', page_title="Please Signup")
+    
+# Sign up a user
+@app.route("/insert_user", methods=["POST", "GET"])
+def insert_user():
+    if request.method == 'POST':
+        users = mongo.db.users
+        user_existing = users.find_one({'name' : request.form['username']})
+
+        if user_existing is None:
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'name' : request.form['username'], 'password' : hashpass})
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+        
+        flash('That username already exists!')
+        return redirect(url_for('login'))
+        
+        
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

@@ -1,88 +1,45 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container-fluid">
-    <h1 class="center">{{page_title}}</h1>
+   <div class="container-fluid">
+    <br>
     <div class="row">
+
         <div class="col-md-12">
             <div class="row">
-                <!--<div class="col-md-4">-->
-                <!--</div>-->
-                <div class="col-md-12">
-                    <!--Data View-->
-                    <div>
-                        <div style="width: 600px;">
-                            <div id="mystats" class="dc-data-count" style="float: right">
-                                <span class="filter-count"></span> selected out of <span class="total-count"></span> | <a href="javascript:dc.filterAll();
-               dc.renderAll();">Reset All</a>
-                            </div>
-                        </div>
 
-                        <div style="clear: both; padding-top: 20px;">
-                            <div>
-                                <div id="line"></div>
-                            </div>
-                        </div>
-
-                        <div style="clear: both">
-                            <div id="mytable"></div>
-                        </div>
-                    </div>
-
-                    <script language="javascript">
-                        var barChart = dc.barChart('#line'); // , 'myChartGroup');
-                        var countChart = dc.dataCount("#mystats");
-                        var tableChart = dc.dataTable("#mytable");
-
-                        d3.csv("data/people.csv", function(errors, people) {
-                            var mycrossfilter = crossfilter(people);
-
-                            // age dimension
-                            var ageDimension = mycrossfilter.dimension(function(data) {
-                                return ~~((Date.now() - new Date(data.DOB)) / (31557600000))
-                            });
-                            var ageGroup = ageDimension.group().reduceCount();
-
-                            barChart
-                                .width(400)
-                                .height(200)
-                                .x(d3.scale.linear().domain([15, 70]))
-                                .yAxisLabel("Count")
-                                .xAxisLabel("Age")
-                                .elasticY(true)
-                                .elasticX(true)
-                                .dimension(ageDimension)
-                                .group(ageGroup);
-
-                            countChart
-                                .dimension(mycrossfilter)
-                                .group(mycrossfilter.groupAll());
-
-                            tableChart
-                                .dimension(ageDimension)
-                                .group(function(data) {
-                                    return ~~((Date.now() - new Date(data.DOB)) / (31557600000));
-                                })
-                                .size(Infinity)
-                                .columns(['name', 'DOB'])
-                                .sortBy(function(d) {
-                                    return d.value;
-                                })
-                                .order(d3.ascending);
-
-                            barChart.render();
-                            countChart.render();
-                            tableChart.render();
-                        });
-                    </script>
-
-
-
+                <div class="col-md-3">
                 </div>
+
+                <div class="col-md-6 center">
+                        <h1 class="center">{{page_title}}</h1>
+
+                  <!--Data Goes Here-->
+                    <p>As the calories increase so does the popularity.</p>
+                  <img class="center img" src="../static/img/popbycal.png"></img>
+                    <hr>
+                    
+                    <p>As the time to cook increases so does the popularity.</p>
+                    <img class="center img" src="../static/img/popbytime.png"></img>
+                    <hr>
+                    
+                    <p>As the serving amount increases so does the popularity.</p>
+                    <img class="center img" src="../static/img/popbysize.png"></img>
+                    <hr>
+                    
+                    <p>Popularity, cooking time and serving amount by calories.</p>
+                    <p>Time to cook and popularity have a semi close relationship while serving amount does not.</p>
+                    <img class="center img" src="../static/img/popby.png"></img>
+
+                   </div>
+
+                <div class="col-md-3">
+                </div>
+                
             </div>
-            <!--<div class="col-md-4">-->
-            <!--</div>-->
         </div>
+
     </div>
 </div>
-</div>
+   
+   
 {% endblock %}

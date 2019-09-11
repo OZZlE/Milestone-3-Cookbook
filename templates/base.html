@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Roboto Font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
     <!--favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="../static/img/favicon-32x32.png?">
     <!--Materialize Icons-->
@@ -16,39 +18,46 @@
     <!-- Font Awesome -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!--DC CSS-->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.2.2/dc.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css">
     <!--Custom CSS-->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
-    <link rel="stylesheet" href="{{url_for('static', filename='css/clean-blog.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/clean-blog.min.css" type="text/css" />
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('get_recipes') }}">View Recipes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('data') }}">Data</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login') }}">Signup/Login</a>
-                    </li>
-                </ul>
-            </div>
+    <nav>
+        <div class="nav-wrapper">
+            <a  href="{{ url_for('index') }}">Fitness Cookbook</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li ><a href="{{ url_for('get_recipes') }}">View Recipes</a></li>
+                <li ><a href="{{ url_for('data') }}">Data</a></li>
+                  {% if 'username' in session %}
+                <li ><a href="{{ url_for('add_recipes') }}">Add Recipe</a></li>
+                <li ><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                <li ><a href="{{ url_for('login') }}">Login</a></li>
+                <li ><a href="{{ url_for('signup') }}">Signup</a></li>
+                {% endif %}
+            </ul>
         </div>
     </nav>
+<!--Mobile Menu-->
+    <ul class="sidenav" id="mobile-demo">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('get_recipes') }}">View Recipes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('data') }}">Data</a></li>
+                  {% if 'username' in session %}
+                <li  class="nav-item"><a class="nav-link" href="{{ url_for('add_recipes') }}">Add Recipe</a></li>
+                <li  class="nav-item"><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                <li  class="nav-item"><a href="{{ url_for('login') }}">Login</a></li>
+                <li  class="nav-item"><a class="nav-link" href="{{ url_for('signup') }}">Signup</a></li>
+                {% endif %}
+    </ul>
+
     <!-- Page Header -->
     <header class="masthead" style="background-image:url(../static/img/fresh-food-bg.jpg) ">
         <div class="overlay"></div>
@@ -63,29 +72,16 @@
             </div>
         </div>
     </header>
+
+
     <!-- Main Content -->
     <div class="container-fluid">
-        <script>
-            // When the user scrolls down 20px from the top of the document, show the button
-            window.onscroll = function() { scrollFunction() };
-
-            function scrollFunction() {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    document.getElementById("myBtn").style.display = "block";
-                }
-                else {
-                    document.getElementById("myBtn").style.display = "none";
-                }
-            }
-
-            // When the user clicks on the button, scroll to the top of the document
-            function topFunction() {
-                document.body.scrollTop = 0; // For Safari
-                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            }
-        </script>
+        <script src="../static/js/scrollbutton.js"></script>
         <button type="text/javascript" src="../static/js/scrollbutton.js" onclick="topFunction()" id="myBtn" title="Go to top"> <i class="material-icons">arrow_upward</i></button> {% block content %} {% endblock %}
     </div>
+
+
+
     <!--Footer-->
     <footer class="page-footer">
         <div class="container">
@@ -96,11 +92,10 @@
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Follow Us!</h5>
-                    <ul>
-                        <li> <i class="fa fa-facebook-square 5x" aria-hidden="true"></i></li>
-                        <li> <i class="fa fa-twitter-square" aria-hidden="true"></i></li>
-                        <li> <i class="fa fa-instagram" aria-hidden="true"></i></li>
-                    </ul>
+                    <i class="fa fa-facebook-square 5x" aria-hidden="true"></i></li>
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i></li>
+                    <i class="fa fa-instagram" aria-hidden="true"></i></li>
+
                 </div>
             </div>
         </div>
@@ -115,13 +110,8 @@
 
     <!--JMaterialize JavaScript -->
     <script type="text/javascript" src="../static/js/materialize.js"></script>
-    <!-- must load in this order: D3 | CROSSFILTER | DC -->
-    <!--D3-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js" charset="utf-8"></script>
-    <!--Crossfilter-->
-    <script type="text/javascript" src="../static/js/crossfilter.js"></script>
-    <!--DC-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.2.2/dc.min.js" charset="utf-8"></script>
+    <!--SideNav-->
+    <script type="text/javascript" src="../static/js/sidenav.js"></script>
     <!--Modal JS-->
     <script type="text/javascript" src="../static/js/modal.js"></script>
 

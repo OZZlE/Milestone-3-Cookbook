@@ -1,109 +1,66 @@
 {% extends 'base.html' %} {% block content %}
+<ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
 <div class="container-fluid">
     <h1 class="center">{{page_title}}</h1>
     <br>
     <div class="row">
+
         <div class="col-md-12">
             <div class="row">
 
-                <!--Login-->
-                <div class="col-md-12 center">
-                    <form>
-                        <div class="form-group">
-                            <div class="row ">
+                <div class="col-md-3">
+                </div>
 
-                                <div class="input-field col-md-12">
-                                    <label for="email">Email</label>
-                                    <br>
-                                    <input placeholder="Johndoe@mail.com" id="email" type="email" class="validate">
-                                </div>
-                            </div>
-                            <br>
-                            <div class=" row">
-                                <div class="input-field col s5">
-                                    <label for="password">Password</label>
-                                    <br>
-                                    <input placeholder="**********" id="password" type="password" class="validate">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row-inline">
-                                <button class="btn waves-effect waves-light green" type="submit" name="action" id="sendLoginButton">Login
-    <i class="material-icons right">send</i>
-  </button>
+                <div class="col-md-6 center">
+                    <div class="form-group">
 
-                                <!--Sign up-->
-                                <!-- Modal Trigger -->
-                                <button data-target="signup" class="btn modal-trigger blue"><i class="material-icons right">account_circle</i>SignUp</button>
-                                <!-- Modal Structure -->
-                                <div id="signup" class="modal modal-fixed-footer">
-                                    <div class="modal-content">
-                                        <form>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <label for="first_name">First Name</label>
-                                                        <br>
-                                                        <input placeholder="John" id="first_name" type="text" class="validate">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <label for="last_name">Last Name</label>
-                                                        <br>
-                                                        <input placeholder="Doe" id="last_name" type="text" class="validate">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <label for="password">Password</label>
-                                                        <br>
-                                                        <input placeholder="**********" id="password" type="password" class="validate">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <label for="password">Confirm Password</label>
-                                                        <br>
-                                                        <input placeholder="**********" id="password" type="password" class="validate">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <label for="email">Email</label>
-                                                        <br>
-                                                        <input placeholder="Johndoe@mail.com" id="email" type="email" class="validate">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s5">
-                                                        <div class="input-field inline">
-                                                            <label for="email_inline">Confirm Email</label>
-                                                            <br>
-                                                            <input placeholder="Johndoe@mail.com" id="email_inline" type="email" class="validate">
-                                                            <span class="helper-text" data-error="wrong" data-success="right"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn waves-effect waves-light blue" type="submit" id="sendSignupButton">Submit
-    <i class="material-icons right">send</i>
-  </button>
-                                    </div>
-                                </div>
-                                <!--./Modal Structure-->
+                        <!--Login-->
+                        <!--<form action="" method="POST" class="col-md-12">-->
+                        <!--    <div class="row">-->
+                        <!--        <div class="input-field col-md-12">-->
+                        <!--            <label for="email">Email</label>-->
+                        <!--            <br>-->
+                        <!--            <input placeholder="Johndoe@mail.com" id="email" type="email" class="validate">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <br>-->
+                        <!--    <div class=" row">-->
+                        <!--        <div class="input-field col s12">-->
+                        <!--            <label for="password">Password</label>-->
+                        <!--            <br>-->
+                        <!--            <input placeholder="**********" id="password" type="password" class="validate">-->
+                        <!--        </div>-->
+                        <!--    </div>-->
+                        <!--    <br>-->
+                        <!--    <div class="row-inline">-->
+                        <!--        <button class="btn waves-effect waves-light green" type="submit" name="action" id="sendLoginButton">Login</button>-->
+                        <!--    </div>-->
+                        <!--</form>-->
+                        <form method=POST action="{{ url_for('login') }}" class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Jdoe">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="*****">
+                </div>
+                <button type="submit" class="btn btn-primary waves-effect waves-light green">Log In</button>
+            </form>
 
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
-                    </form>
+                <div class="col-md-3">
                 </div>
 
             </div>
         </div>
+
     </div>
 </div>
 {% endblock %}

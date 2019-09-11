@@ -7,15 +7,7 @@
 ##### Keep it(mongodb key) in an environment variable and use `os.getenv()` or `os.environ.get()` to fetch it.
 
 To do:
-1. like/cooked button (in mongodb, no button)
-2. search function (up not functioning)
-3. sort by vegitarian, high protein, low carb, etc
-4. login / sign up (DONE)
-5. data overview ** Categories > recipes > calories
-----------
-button actions send urls not form actions...?
-6. edit recipe (page link correctly but submit button sends to edit_recipe)
-7. delete recipe (page up button not working)
+4. login / sign up 
 
 
 
@@ -24,20 +16,9 @@ button actions send urls not form actions...?
 > Create a web application that allows users to store and easily access cooking recipes
     Put some effort into designing a database schema based on recipes, and any other related properties and entities (e.g. views, upvotes, ingredients, recipe authors, allergens, author’s country of origin, cuisine etc…). Make sure to put some thought into the relationships between them, and use either foreign keys (in the case of a relational database) or nesting (in the case of a document store) to connect these pieces of data
     
-   > 1. Create the backend code and frontend form to allow users to add new recipes to the site (at least a basic one, if you haven’t taken the frontend course) (DONE)
+>    2. Create the backend code to group and summarise the recipes on the site, based on their attributes such as cuisine, country of origin, allergens, ingredients, etc. and a frontend page to show this summary, and make the categories clickable to drill down into a filtered view based on that category. This frontend page can be as simple or as complex as you’d like; you can use a Python library such as matplotlib, or a JS library such as d3/dc (that you learned about if you took the frontend modules) for visualisation
     
->    2. Create the backend code to group and summarise the recipes on the site, based on their attributes such as cuisine, country of origin, allergens, ingredients, etc. and a frontend page to show this summary, and make the categories clickable to drill down into a filtered view based on that category. This frontend page can be as simple or as complex as you’d like; you can use a Python library such as matplotlib, or a JS library such as d3/dc (that you learned about if you took the frontend modules) for visualisation (D3.js DC.js recipes.csv)
-    
- >   3. Create the backend code to retrieve a list of recipes, filtered based on various criteria (e.g. allergens, cuisine, etc…) and order them based on some reasonable aspect (e.g. number of views or upvotes). (DONE)
-    
-  >  4. Create a frontend page to display these, and to show some summary statistics around the list (e.g. number of matching recipes, number of new recipes. Optionally, add support for pagination, when the number of results is large (one get_recipes page add button filter at the top) (DONE)
-    
-   > 4. Create a detailed view for each recipes, that would just show all attributes for that recipe, and the full preparation instructions (DONE)
-    
->    5. Allow for editing and deleting of the recipe records, either on separate pages, or built into the list/detail pages (DONE)
-   
  >   Optionally, you may choose to add basic user registration and authentication to the site. This can as simple as adding a username field to the recipe creation form, without a password (for this project only, this is not expected to be secure) (Y)
- 
  
 
 ## A website to help the hungry stay healthy and fit in the kitchen and in life.
@@ -140,6 +121,8 @@ Photos from
 - I received inspiration for this project from the 5/5  [example project](https://code-institute-solutions.github.io/StudentExampleProjectGradeFive/)
 
 - The recipes I used are from the wonderful cookbook [The Ultimate Bodybuilding Cookbook: High-Impact Recipes to Make You Stronger Than Ever by Kendall Lou Schmidt](https://www.amazon.com/Ultimate-Bodybuilding-Cookbook-High-Impact-Stronger/dp/162315765X)
+
+- Specials Thanks to the student slack channels, my mentor and stackoverflow.
 
 ## Mock ups
 
