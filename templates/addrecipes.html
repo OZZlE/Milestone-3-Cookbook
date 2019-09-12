@@ -9,35 +9,34 @@
                     <p>If you don't know the calories, protein, carbohydrates or fat leave it blank.</p>
                     <form action="{{url_for('insert_recipes')}}" method="POST" class="col-md-12">
                         <br>
+                        <!--Category-->
                         <i class="material-icons prefix">category</i>
                         <label> Category</label>
                         <div class="row">
                             <div class="input-field col s6">
-                                <select id="category" name="category_name" class="browser-default">
-                  <option value="" disabled selected>Choose Category</option>
-                  {% for cat in categories %}
-                      <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                  {% endfor %}
-                </select>
+                                <input type="text" name="category_name" id="category_name" class="materialize-input"></input>
                             </div>
                         </div>
                         <br>
+                        <!--Image-->
                         <i class="material-icons prefix">add_a_photo</i>
-                        <label for="recipe_image">Add an image link</label>
+                        <label for="image">Add an image link</label>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input name="recipe.image" id="recipe.image" class="materialize-input"></input>
+                                <input type="text" name="image" id="image" class="materialize-input"></input>
                             </div>
                         </div>
                         <br>
+                        <!--Name-->
                         <i class="material-icons prefix">local_dining</i>
                         <label for="recipe_name">Recipe Name</label>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input name="recipe_name" id="recipe_name" class="materialize-input"></input>
+                                <input type="text" name="recipe_name" id="recipe_name" class="materialize-input"></input>
                             </div>
                         </div>
                         <br>
+                        <!--Amount-->
                         <i class="material-icons prefix">add</i>
                         <label for="amount">Amount Served</label>
                         <div class="row">
@@ -46,6 +45,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Descr-->
                         <i class="material-icons prefix">notes</i>
                         <label for="recipe_description">Description</label>
                         <div class="row">
@@ -54,6 +54,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Cook Time-->
                         <i class="material-icons prefix">access_time</i>
                         <label for="cook_time">Cook Time (in minutes)</label>
                         <div class="row">
@@ -61,15 +62,8 @@
                                 <input name="cook_time" id="cook_time" class="materialize-input" type="number"></input>
                             </div>
                         </div>
-                        <!--<br>-->
-                        <!--<i class="material-icons prefix">access_time</i>-->
-                        <!--<label for="cook_time_string">Cook Time</label>-->
-                        <!--<div class="row">-->
-                        <!--    <div class="input-field col s6">-->
-                        <!--        <input name="cook_time_string" id="cook_time_string" class="materialize-input"></input>-->
-                        <!--    </div>-->
-                        <!--</div>-->
                         <br>
+                        <!--Labels-->
                         <i class="material-icons prefix">label</i>
                         <label for="label">Labels</label>
                         <div class="row">
@@ -78,6 +72,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Ingredients-->
                         <i class="material-icons prefix">local_grocery_store</i>
                         <label for="recipe_ingredients">Ingredients</label>
                         <div class="row">
@@ -86,6 +81,16 @@
                             </div>
                         </div>
                         <br>
+                        <!--Prep Time-->
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="preperation_time">Preperation Time</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="number" name="preperation_time" id="preperation_time" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <br>
+                        <!--Prep #1-->
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_1">Preperation Step #1</label>
                         <div class="row">
@@ -94,6 +99,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Prep #2-->
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_2">Preperation Step #2</label>
                         <div class="row">
@@ -102,6 +108,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Prep #3-->
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_3">Preperation Step #3</label>
                         <div class="row">
@@ -110,6 +117,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Prep #4-->
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_4">Preperation Step #4</label>
                         <div class="row">
@@ -118,6 +126,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Calories-->
                         <i class="material-icons prefix">favorite</i>
                         <label for="calories">Calories</label>
                         <div class="row">
@@ -126,6 +135,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Protien-->
                         <i class="material-icons prefix">restaurant</i>
                         <label for="protein">Protein</label>
                         <div class="row">
@@ -134,6 +144,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Carbs-->
                         <i class="material-icons prefix">cake</i>
                         <label for="carbohydrates">Carbohydrates</label>
                         <div class="row">
@@ -142,6 +153,7 @@
                             </div>
                         </div>
                         <br>
+                        <!--Fat-->
                         <i class="material-icons prefix">fastfood</i>
                         <label for="fat">Fat</label>
                         <div class="row">
@@ -150,12 +162,32 @@
                             </div>
                         </div>
                         <br>
-                        <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="sendRecipeButton">Submit
+                        <!--Cooked Number-->
+                        <i class="material-icons prefix">favorite</i>
+                        <label for="cooked">Amount of times cooked</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="cooked" id="cooked" class="materialize-input"></input>
+                            </div>
+                        </div>
+                        <!--Submit button-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="sendRecipeButton">Submit
     <i class="material-icons right">send</i>
   </button>
-  <button class="btn waves-effect waves-light btn-large red float-right"   id="resetButton" input type="reset"> Reset <i class="material-icons right">clear</i></button>
+                            </div>
+                        </div>
+                        <!--Reset Button-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light btn-large red" id="resetButton" input type="reset"> Reset <i class="material-icons right">clear</i></button>
+                            </div>
+                        </div>
+                        <!--End of form-->
                 </div>
                 </form>
+
             </div>
         </div>
     </div>

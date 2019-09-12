@@ -84,20 +84,23 @@ def recipe_page(recipe_id):
 def insert_recipes():
     insert_recipes = {
         'recipe_name':request.form.get('recipe_name'),
-        'category_names':request.form.get('category_names'),
+        'category_name':request.form.get('category_name'),
         'recipe_description': request.form.get('recipe_description'),
-        'recipe_image': request.form.get('recipe_image'),
+        'image': request.form.get('image'),
         'recipe_ingredients':request.form.get('recipe_ingredients'),
         'recipe_preperation_1':request.form.get('recipe_preperation_1'),
         'recipe_preperation_2':request.form.get('recipe_preperation_2'),
         'recipe_preperation_3':request.form.get('recipe_preperation_3'),
         'recipe_preperation_4':request.form.get('recipe_preperation_4'),
-        'recipe_amount':request.form.get('recipe_amount'),
-        'recipe_preperation_time':request.form.get('recipe_preperation_time'),
-        'recipe_cook_time':request.form.get('recipe_cook_time'),
-        'recipe_calories':request.form.get('recipe_calories'),
-        'recipe_fat':request.form.get('recipe_fat'),
-        'recipe_protein':request.form.get('recipe_protein') 
+        'amount':request.form.get('amount'),
+        'preperation_time':request.form.get('preperation_time'),
+        'cook_time':request.form.get('cook_time'),
+        'calories':request.form.get('calories'),
+        'fat':request.form.get('fat'),
+        'protein':request.form.get('protein'),
+        'carbohydrates':request.form.get('carbohydrates'),
+        'label':request.form.get('label'),
+        'cooked':request.form.get('cooked') 
     }
     mongo.db.recipes.insert_one(insert_recipes)
     print("Recipe Added!")
@@ -112,20 +115,24 @@ def update_recipe(recipe_id):
             recipe.update_one({'_id': ObjectId(recipe_id)},
             {"$set":
                  {'recipe_name':request.form.get('recipe_name'),
-        'category_names':request.form.get('category_names'),
+        'category_name':request.form.get('category_name'),
         'recipe_description': request.form.get('recipe_description'),
-        'recipe_image': request.form.get('recipe_image'),
+        'image': request.form.get('image'),
         'recipe_ingredients':request.form.get('recipe_ingredients'),
         'recipe_preperation_1':request.form.get('recipe_preperation_1'),
         'recipe_preperation_2':request.form.get('recipe_preperation_2'),
         'recipe_preperation_3':request.form.get('recipe_preperation_3'),
         'recipe_preperation_4':request.form.get('recipe_preperation_4'),
-        'recipe_amount':request.form.get('recipe_amount'),
-        'recipe_preperation_time':request.form.get('recipe_preperation_time'),
-        'recipe_cook_time':request.form.get('recipe_cook_time'),
-        'recipe_calories':request.form.get('recipe_calories'),
-        'recipe_fat':request.form.get('recipe_fat'),
-        'recipe_protein':request.form.get('recipe_protein')}
+        'amount':request.form.get('amount'),
+        'preperation_time':request.form.get('preperation_time'),
+        'cook_time':request.form.get('cook_time'),
+        'calories':request.form.get('calories'),
+        'fat':request.form.get('fat'),
+        'protein':request.form.get('protein'),
+        'carbohydrates':request.form.get('carbohydrates'),
+        'label':request.form.get('label'),
+        'cooked':request.form.get('cooked')
+                 }
              })
     return redirect(url_for('get_recipes'))
             
