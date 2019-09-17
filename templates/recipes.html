@@ -2,14 +2,21 @@
 <h2 class="center">{{page_title}}</h2>
 <div class="center">
     <h4>Sort by:</h4>
+    
+    <div class="row">
     <!--Filter by Alphbetical-->
     <a class="waves-effect waves-light btn-small" href="{{ url_for('get_recipes_time')}}"><i class="material-icons left">access_time</i>Cook Time</a>
     <!--Filter by Calories-->
     <a class="waves-effect waves-light btn-small" href="{{ url_for('get_recipes_calories')}}"><i class="material-icons left">favorite</i>Calories</a>
+    </div>
+    
+        <div class="row">
     <!--Filter by # of cooked-->
     <a class="waves-effect waves-light btn-small" href="{{ url_for('get_recipes_popular')}}"><i class="material-icons left">restaurant</i>Popularity</a>
     <!--Clear filter-->
     <a class="waves-effect waves-light btn-small" href="{{ url_for('get_recipes')}}" ><i class="material-icons left">clear_all</i>Clear</a>
+    </div>
+    
 </div>
 
 <div class="container-fluid">

@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <img class="image" src="{{ recipes.image }}" alt="Profile image for {{recipes.recipe_name}}"></img>
+                <img class="image image-center" src="{{ recipes.image }}" alt="Profile image for {{recipes.recipe_name}}"></img>
                 <div class="col-md-12">
                     <br>
-                    <h4 class="col-md-7">{{ recipes.recipe_name }}</h4>
-                    <p> <i>{{recipes.recipe_description}}</i></p>
+                    <h4>{{ recipes.recipe_name }}</h4>
                     <p> <i>{{recipes.category_name}}</i></p>
+                    <p> <i>{{recipes.recipe_description}}</i></p>
                     <p><b>Ingredients</b>: {{recipes.recipe_ingredients}}</p>
                     <p><b>Preperation</b>: {{recipes.recipe_preperation_1}}</p>
                     <p> {{recipes.recipe_preperation_2}}</p>
@@ -27,22 +27,21 @@
             </div>
 
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+                <div class="col-md-12">
 
                     {% if 'username' in session %}
                     <!--Edit-->
-                    <a href="{{ url_for('edit_recipes', recipe_id=recipes._id)}}"><button class="btn waves-effect waves-light btn-large yellow float-left" type="button" name="url" id="editRecipeButton"><i class="material-icons right">edit</i><b>Edit</b></button></a>
+                    <a href="{{ url_for('edit_recipes', recipe_id=recipes._id)}}"><button class="btn waves-effect waves-light btn-large yellow" type="button" name="url" id="editRecipeButton"><b>Edit</b></button></a>
                     <!--Delete-->
-                    <a href="{{ url_for('delete_recipes', recipe_id=recipes._id)}}"><button class="btn waves-effect waves-light btn-large red float-right" type="button" name="url" id="deleteRecipeButton"><i class="material-icons right">delete</i><b>Delete</b></button></a>                    {% else %}
+                    <a href="{{ url_for('delete_recipes', recipe_id=recipes._id)}}"><button class="btn waves-effect waves-light btn-large red" type="button" name="url" id="deleteRecipeButton"><b>Delete</b></button></a> 
+                    {% else %}
                     <p class="center">Login to edit or delete recipe.</p>
                     <!--Edit-->
-                    <button class="btn disabled btn-large float-left" type="button" name="url" id="editRecipeButton"><i class="material-icons right">edit</i><b>Edit</b></button>
-                    <!--Delete-->
-                    <button class="btn disabled btn-large float-right" type="button" name="url" id="deleteRecipeButton"><i class="material-icons right">delete</i><b>Delete</b></button> {% endif %}
+                    <button class="btn disabled btn-large" type="button" name="url" id="editRecipeButton"><b>Edit</b></button>
 
+                    <!--Delete-->
+                    <button class="btn disabled btn-large" type="button" name="url" id="deleteRecipeButton"><b>Delete</b></button> {% endif %}
                 </div>
-                <div class="col-md-3"></div>
             </div>
         </div>
     </div>

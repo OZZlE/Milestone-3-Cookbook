@@ -3,20 +3,27 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-12 center">
-                    <img class="thumbnail" src="{{ recipe.image }}" alt="Profile image for {{recipe.recipe_name}}"></img>
+                <div class="col-md-12">
                     <br>
-                    <h2 class="center">{{page_title}} {{ recipe.recipe_name }}</h2>
+                    <div class="center">
+                    <h2 >{{page_title}} {{ recipe.recipe_name }}</h2>
                     <p>This will permenatly delete {{ recipe.recipe_name }}.</p>
                     <p>Are you sure?</p>
-                    <p>
-                        <form action="{{url_for('delete_recipe', recipe_id=recipe._id)}}" , method='POST'>
+                    </div>
+                        <form action="{{url_for('delete_recipe', recipe_id=recipe._id)}}" , method='POST' class="center">
+                              <div class="row">
+                                <div class="input-field col s12">
                             <!--Go Back-->
-                            <a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"> <button class="btn waves-effect waves-light btn-large green" type="button" name="url" id="goBack"><i class="material-icons left">arrow_back</i><b>No! Take me back to {{ recipe.recipe_name }}!</b></button></a>
+                            <a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"> <button class="btn waves-effect waves-light btn-large green" type="button" name="url" id="goBack"><b>No! Take me back!</b></button></a>
+                              </div>
+                        </div>
+                          <div class="row">
+                                <div class="input-field col s12">
                             <!--Submit-->
-                            <button class="btn waves-effect waves-light btn-large red" type="submit" name="action" id="deleteRecipeButton"><i class="material-icons left">delete</i><b>Yes I want to delete {{ recipe.recipe_name }}</b></button>
+                            <button class="btn waves-effect waves-light btn-large red" type="submit" name="action" id="deleteRecipeButton"><b>Yes I want to delete.</b></button>
+                              </div>
+                        </div>
                         </form>
-                    </p>
                 </div>
             </div>
         </div>

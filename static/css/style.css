@@ -54,6 +54,14 @@
     border-radius: 25px;
 }
 
+.image-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -88,19 +96,9 @@ ul {
       float: left;
 }
 
-form {
-    display: inline-block;
-}
-
-
- /* Style the search box */
-#mySearch {
-  width: 100%;
-  font-size: 18px;
-  padding: 11px;
-  margin-top: 20px;
-  border: 1px solid #ddd;
-}
+/*form {*/
+/*    display: inline-block;*/
+/*}*/
 
 /* Style the navigation menu */
 #myMenu {
@@ -149,8 +147,9 @@ img {
   height: auto;
 }
 
-
-
+.input-form {
+  width: 100%;
+}
 
 .navbar-default {
 	background-image: none;

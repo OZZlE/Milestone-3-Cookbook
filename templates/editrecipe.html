@@ -1,18 +1,20 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="center-div">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-8 center">
                     <h2>{{page_title}} {{recipe.recipe_name}}</h2>
                     <p>Fill out the form below to edit a recipe from the database.</p>
-                    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST" class="col-md-12">
+                    <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST">
                         <br>
                         <!--Category-->
                         <i class="material-icons prefix">category</i>
                         <label> Category</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field ">
                                 <textarea type="text" name="category_name" id="category_name" class="materialize-textarea">{{ recipe.category_name }}</textarea>
                             </div>
                         </div>
@@ -21,7 +23,7 @@
                         <i class="material-icons prefix">add_a_photo</i>
                         <label for="image">Add an image link</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field ">
                                 <textarea type="text" name="image" id="image" class="materialize-textarea">{{ recipe.image }}</textarea>
                             </div>
                         </div>
@@ -30,7 +32,7 @@
                         <i class="material-icons prefix">local_dining</i>
                         <label for="recipe_name">Recipe Name</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field ">
                                 <textarea name="recipe_name" id="recipe_name" class="materialize-textarea" >{{ recipe.recipe_name }}</textarea>
                             </div>
                         </div>
@@ -39,7 +41,7 @@
                         <i class="material-icons prefix">add</i>
                         <label for="amount">Amount Served</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea type="text" name="amount" id="amount" class="materialize-textarea">{{ recipe.amount }}</textarea>
                             </div>
                         </div>
@@ -48,7 +50,7 @@
                         <i class="material-icons prefix">notes</i>
                         <label for="recipe_description">Description</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="recipe_description" id="recipe_description" class="materialize-textarea">{{recipe.recipe_description}}</textarea>
                             </div>
                         </div>
@@ -57,7 +59,7 @@
                         <i class="material-icons prefix">access_time</i>
                         <label for="cook_time">Cook Time (in minutes)</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="cook_time" id="cook_time" class="materialize-textarea" type="number">{{ recipe.cook_time }}</textarea>
                             </div>
                         </div>
@@ -66,7 +68,7 @@
                         <i class="material-icons prefix">label</i>
                         <label for="label">Labels</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="label" id="label" class="materialize-textarea">{{ recipe.label }}</textarea>
                             </div>
                         </div>
@@ -75,7 +77,7 @@
                         <i class="material-icons prefix">local_grocery_store</i>
                         <label for="recipe_ingredients">Ingredients</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="recipe_ingredients" id="recipe_ingredients" class="materialize-textarea">{{ recipe.recipe_ingredients }}</textarea>
                             </div>
                         </div>
@@ -84,7 +86,7 @@
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="preperation_time">Preperation Time</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea type="number" name="preperation_time" id="preperation_time" class="materialize-textarea">{{ recipe.preperation_time }}</textarea>
                             </div>
                         </div>
@@ -93,7 +95,7 @@
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_1">Preperation Step #1</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="recipe_preperation_1" id="recipe_preperation_1" class="materialize-textarea">{{ recipe.recipe_preperation_1 }}</textarea>
                             </div>
                         </div>
@@ -102,7 +104,7 @@
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_2">Preperation Step #2</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="recipe_preperation_2" id="recipe_preperation_2" class="materialize-textarea">{{ recipe.recipe_preperation_2 }}</textarea>
                             </div>
                         </div>
@@ -111,7 +113,7 @@
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_3">Preperation Step #3</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="recipe_preperation_3" id="recipe_preperation_3" class="materialize-textarea">{{ recipe.recipe_preperation_3 }}</textarea>
                             </div>
                         </div>
@@ -120,7 +122,7 @@
                         <i class="material-icons prefix">hourglass_empty</i>
                         <label for="recipe_preperation_4">Preperation Step #4</label>
                         <div class="row">
-                            <div class="input-field col s6">
+                            <div class="input-field">
                                 <textarea name="recipe_preperation_4" id="recipe_preperation_4" class="materialize-textarea">{{ recipe.recipe_preperation_4 }}</textarea>
                             </div>
                         </div>
@@ -129,7 +131,7 @@
                         <i class="material-icons prefix">favorite</i>
                         <label for="calories">Calories</label>
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field">
                                 <textarea id="calories" name="calories" type="number" class="materialize-textarea">{{ recipe.calories }}</textarea>
                             </div>
                         </div>
@@ -138,7 +140,7 @@
                         <i class="material-icons prefix">restaurant</i>
                         <label for="protein">Protein</label>
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field">
                                 <textarea id="protein" name="protein" type="number" class="materialize-textarea">{{ recipe.protein }}</textarea>
                             </div>
                         </div>
@@ -147,7 +149,7 @@
                         <i class="material-icons prefix">cake</i>
                         <label for="carbohydrates">Carbohydrates</label>
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field">
                                 <textarea id="carbohydrates" name="carbohydrates" type="number" class="materialize-textarea">{{ recipe.carbohydrates }}</textarea>
                             </div>
                         </div>
@@ -156,7 +158,7 @@
                         <i class="material-icons prefix">fastfood</i>
                         <label for="fat">Fat</label>
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field">
                                 <textarea id="fat" name="fat" type="number" class="materialize-textarea">{{ recipe.fat }}</textarea>
                             </div>
                         </div>
@@ -165,26 +167,33 @@
                         <i class="material-icons prefix">favorite</i>
                         <label for="cooked">Amount of times cooked</label>
                         <div class="row">
-                            <div class="input-field col s6">
-                                <textarea name="cooked" id="cooked" class="materialize-textarea">{{ recipe.protein }}</textarea>
+                            <div class="input-field">
+                                <textarea name="cooked" id="cooked" class="materialize-textarea">{{ recipe.cooked }}}</textarea>
                             </div>
                         </div>
                         <!--Buttons-->
-                        <div>
+                                    <div class="row">
+                                <div class="input-field col s12">
                             <!--Go Back-->
-                            <a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"><button class="btn waves-effect waves-light btn-large float-left" type="button" name="url" id="goBack"><i class="material-icons left">arrow_back</i><b>No! Take me back!</b></button></a>
-                            <!--Submit-->
-                            <button class="btn waves-effect waves-light btn-large green float-right" type="submit" name="action" id="editRecipeButton">Submit
-    <i class="material-icons right">send</i>
-  </button>
+                            <a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"><button class="btn waves-effect waves-light btn-large" type="button" name="url" id="goBack"><b>No! Take me back!</b></button></a>
+                              </div>
                         </div>
+                                                                <div class="row">
+                                <div class="input-field col s12">
+                            <!--Submit-->
+                            <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="editRecipeButton">Submit</button>
+                        </div>
+                        </div>
+                        
                     </form>
-                    <!--<div class="col-md-4">-->
-                    <!--</div>-->
-                </div>
-            </div>
-        </div>
-    </div>
+				</div>
+				
+				<div class="col-md-2">
+				</div>
+				
+			</div>
+		</div>
+	</div>
 </div>
 
 {% endblock %}
