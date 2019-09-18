@@ -78,9 +78,15 @@ John Doe wants to sign up. She can do so by clicking on "login/Signup" in the na
 
 This site was tested across various browsers and browser sizes. Multiple times I used [JSHint](https://jshint.com/) to double check my javascript and [W3 validator](https://validator.w3.org/)  to debug and remove extra tags in my code. I used [Responsinator](https://www.responsinator.com) to check the responsiveness of my site in various devices.
 
+Automated testing using Jasmine was not used as there is not Javascript logic in the site. The only JS written excluding what came with the theme came from materialize which was the sidenav for mobile use.
+
+Testing using Unit test was used...
+
 ### Deployment
 
-This website was deployed through Heroku directly from the master branch. In order to run the code locally simply download the files, start up Visual Studio Code or your IDE of choice to check it out. You must have python installed. The difference between the development version and deployment version are little to none. The database is stored on mongodb and is set up through Heroku.
+This website was deployed through Heroku directly from the master branch. Using a Procfile and a requirments.txt file Heroku installs the required software in order to run the site. 
+
+In order to run the code locally simply download the files, start up Visual Studio Code or your IDE of choice to check it out. You must have python installed. The difference between the development version and deployment version are little to none. The database is stored on mongodb and is set up through Heroku.
 
 ### Things to do in the Future
 
