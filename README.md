@@ -10,28 +10,28 @@ I created this website to help hungry people who are looking to eat healthy and 
 John Doe is curious about the purpose of the site. He can read about the reason it was created on the home page.
 
 **User Story 2:**
-Jane Doe wants to browse the recipes. She can do that by clicking "recipes" in the nav bar.
+Jane Doe wants to browse the recipes. She can do that by clicking "View Recipes" in the nav bar.
 
 **User Story 3:**
 Jeff Doe wants to read more about a specific recipe. He can do that by clicking on its name in the recipes page.
 
 **User Story 4:**
-Jerry Doe wants to add  new recipe. He can so by clicking the "Add a recipe" in the nav bar and filling out the following form.
+Jerry Doe wants to add new recipe. After signing up or logging in he can so by clicking the "Add a recipe" in the nav bar and filling out the following form.
 
 **User Story 5:**
-Jane Doe wants to edit an incorrect recipe. She can do so by clicking the "edit recipe" button in the specific recipe page and filling out the following form.
+Jane Doe wants to edit an incorrect recipe.  After signing up or logging in she can do so by clicking the "edit recipe" button in the specific recipe page and filling out the following form.
 
 **User Story 6:**
-John Doe wants to delete a recipe. He can do so by clicking the "delete recipe" button in the specific recipe page and filling out the following form.
+John Doe wants to delete a recipe.  After signing up or logging in he can do so by clicking the "delete recipe" button in the specific recipe page and filling out the following form.
 
 **User Story 7:**
-Jeff Doe wants to view the data about all of the recipes. He can do so by clicking on "Data" in the navbar.
+Jeff Doe wants to view the data about all the recipes. He can do so by clicking on "Data" in the navbar.
 
 **User Story 8:**
-Jane Doe wants to login. She can do so by clicking on "login/Signup" in the navbar and filling out the following form.
+Jane Doe wants to login. She can do so by clicking on "login" in the navbar and filling out the following form.
 
 **User Story 9:**
-John Doe wants to sign up. She can do so by clicking on "login/Signup" in the navbar and filling out the following form.
+John Doe wants to sign up. She can do so by clicking on "Signup" in the navbar and filling out the following form.
 
 ### Features
 
@@ -47,7 +47,7 @@ John Doe wants to sign up. She can do so by clicking on "login/Signup" in the na
 
 - User is able to edit a specific recipe after logging in or signing up by clicking "edit Recipe" at the bottom of the recipe page and filling out the form. 
 
-- User is able to delete a specific recipe after logging in or signing up by clicking "delete Recipe" at the bottom of the recipe page and comfiming on the next page. 
+- User is able to delete a specific recipe after logging in or signing up by clicking "delete Recipe" at the bottom of the recipe page and confirming on the next page. 
 
 - User is able to sort the recipes by clicking "Popular" or "calories" or "cook time" on the recipes page.
 
@@ -76,11 +76,33 @@ John Doe wants to sign up. She can do so by clicking on "login/Signup" in the na
 
 ### Testing
 
-This site was tested across various browsers and browser sizes. Multiple times I used [JSHint](https://jshint.com/) to double check my javascript and [W3 validator](https://validator.w3.org/)  to debug and remove extra tags in my code. I used [Responsinator](https://www.responsinator.com) to check the responsiveness of my site in various devices.
+This site was tested across various browsers and browser sizes. Multiple times I used [JSHint](https://jshint.com/) to double check my JavaScript and [W3 validator](https://validator.w3.org/)  to debug and remove extra tags in my code. I used [Responsinator](https://www.responsinator.com) to check the responsiveness of my site in various devices.
 
-Automated testing using Jasmine was not used as there is not Javascript logic in the site. The only JS written excluding what came with the theme came from materialize which was the sidenav for mobile use.
+Automated testing using Jasmine was not used as there is little JavaScript logic in the site. The only JS written excluding what came with the theme came from materialize which was the sidenav for mobile use.
 
-Testing using Unit test was used...
+##### Manual Testing
+
+Manual testing was done following the user stories mentioned above.
+
+- **Signup a User** - User is able to Signup by clicking Signup on the navbar and filling out the form. They will then be redirected to the home page.
+
+- **Login a User** - User is able to login by clicking login on the navbar and filling out the form. They will then be redirected to the home page.
+
+
+- **Add a Recipe** - This option appears in the nav after logging in and after clicking on the link the user will be able to fill out the form and add the recipe to the database.
+
+- **Edit a Recipe** - This option appears at the bottom of a recipe after logging in and after clicking on the button the user will be able to fill out the form and edit the recipe from the database.
+
+- **Delete a Recipe** - This option appears at the bottom of a recipe after logging in and after clicking on the button the user will be able to confirm their choice and delete the recipe from the database.
+
+- **View all Recipe** - User is able to view all the recipes from the database by clicking the View Recipes link in the navbar. They can browse the recipes by scrolling down and from their choose a recipe to view in detail.
+
+- **View a single Recipe** - User is able to view a single recipe from the database by clicking the View Recipes link in the navbar. They can browse the recipes by scrolling down and from there choose a recipe to view in detail by click on its name.
+
+- **View cookbook Data** - User is able to view all the data from the database by clicking the View Data link in the navbar. They can browse the data by scrolling down and view the graphs and analysis.
+
+- **Sort Recipes Page** - User is able to view all the recipes from the database by clicking the View Recipes link in the navbar. They can sort the recipes by clicking on a button to sort the recipes by calories, cooking time, popularity or clear the sort to return to the normal view.
+
 
 ### Deployment
 
@@ -94,7 +116,7 @@ In order to run the code locally simply download the files, start up Visual Stud
 
 ### Credits
 
-I had trouble finding pictures that matched the recipes so I used the best image from google image search.
+I had trouble finding pictures that matched the recipes, so I used the best image from google image search.
 
 ### Acknowledgements
 
@@ -102,9 +124,9 @@ I had trouble finding pictures that matched the recipes so I used the best image
 
 - The recipes I used are from the wonderful cookbook [The Ultimate Bodybuilding Cookbook](https://www.amazon.com/Ultimate-Bodybuilding-Cookbook-High-Impact-Stronger/dp/162315765X). I highly recommend it.
 
-- Specials Thanks to the student slack channels, my mentor and stackoverflow.
+- Specials Thanks to the student slack channels, my mentor and stack overflow.
 
-## Mock ups
+## Mockups
 
 ![Home_Web](https://cook-book-application.herokuapp.com/static/img/mockups/Home_Web.png)
 
