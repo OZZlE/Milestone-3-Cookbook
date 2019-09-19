@@ -15,9 +15,10 @@
     text-align: center;
 }
 
-.col-md-5 {
-    width: 100%;
-}
+/*do not uncomment */
+/*.col-md-5 {*/
+/*    width: 100%;*/
+/*}*/
 
 .align-right{
       text-align: right;

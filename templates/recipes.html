@@ -22,34 +22,20 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            {% for recipe in recipes %} {% if loop.index % 2 != 0 %}
+           {% for recipe in recipes %} 
             <div class="row featurette">
-                    <div class="col-md-5">
-                    <img class="featurette-image thumbnail-right" src="{{ recipe.image }}" alt="Picture of {{ recipe.name }}">
-                </div>
-                <div class="col-md-12 align-right">
+                <div class="col-md-5">
                     <h3><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"> {{ recipe.recipe_name }}</a></h3>
                     <p><i>{{ recipe.recipe_description }}</i></p>
                     <p> <b>Cook Time</b>: {{recipe.cook_time_string}} </p>
                     <p> <b>Calories</b>: {{recipe.calories}}</p>
                     <p> <b>Cooked</b>: {{recipe.cooked}}</p>
                 </div>
-            </div>
-            {% else %}
-            <div class="row featurette">
-                <div class="col-md-5">
-                    <img class="featurette-image thumbnail-left" src="{{ recipe.image }}" alt="Picture of {{ recipe.name }}">
-                </div>
-                <div class="col-md-12 ">
-                    <h3><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"> {{ recipe.recipe_name }}</a></h3>
-                    <p></i>{{ recipe.recipe_description }}</i></p>
-                    <p> <b>Cook Time</b>: {{recipe.cook_time_string}} </p>
-                    <p> <b>Calories</b>: {{recipe.calories}}</p>
-                    <p> <b>Cooked</b>: {{recipe.cooked}}</p>
+                <div class="col-md-7">
+                    <img class="featurette-image thumbnail-right" src="{{ recipe.image }}" alt="Picture of {{ recipe.name }}">
                 </div>
             </div>
-            {% endif %} {% if loop.index != 13 %}
-            <hr class="featurette-divider"> {% endif %} {% endfor %}
+            <hr class="featurette-divider">  {% endfor %}
         </div>
     </div>
 </div>
