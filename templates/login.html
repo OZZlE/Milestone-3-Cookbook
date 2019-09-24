@@ -1,9 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -32,6 +28,13 @@
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <button type="submit" class="btn btn-primary green browser-default">login</button>
+                                            
+                                            <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+                                            
                                         </div>
                                     </div>
                                 </form>
