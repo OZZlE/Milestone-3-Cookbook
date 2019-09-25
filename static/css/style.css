@@ -1,214 +1,242 @@
-
-.btn_small {
-    height: 24px;
-    width: 60px;
-    line-height: 24px;
-    margin: 5px 5px;
-    padding: 0 0.5em;
+/*Nav bar Styles*/
+ #nav-home {
+     padding: 0 15px;
 }
-
-.task_header {
-    margin-top: 5px;
+ ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
 }
-
-.center {
-    text-align: center;
+/*Login Stlye*/
+ #login-form{
+     padding-bottom: 30px;
 }
-
-/*do not uncomment */
-/*.col-md-5 {*/
-/*    width: 100%;*/
-/*}*/
-
-.align-right{
-      text-align: right;
+ #login-form{
+     padding-bottom: 30px;
 }
-
-.thumbnail {
-    height: 320px;
-    width: 320px;
-    padding: 10px;
-    border-radius: 25px;
+/*Text Styles*/
+ .center {
+     text-align: center;
 }
-
-.thumbnail-right {
-    height: 320px;
-    width: 320px;
-    padding: 10px;
-    border-radius: 25px;
-    float:right;
+ .align-right{
+     text-align: right;
 }
-
-.thumbnail-left {
-    height: 320px;
-    width: 320px;
-    padding: 10px;
-    border-radius: 25px;
-    float:left;  
+/*Images Styles*/
+/*Makes images smaller*/
+ .thumbnail {
+     height: 320px;
+     width: 320px;
+     padding: 10px;
+     border-radius: 25px;
 }
-
-.image {
-    max-height: 45%;
-    max-width: 45%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 25px;
+/*Makes images smaller and float right*/
+ .thumbnail-right {
+     height: 320px;
+     width: 320px;
+     padding: 10px;
+     border-radius: 25px;
+     float:right;
 }
-
-.image-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+/*Makes images smaller and float left*/
+ .thumbnail-left {
+     height: 320px;
+     width: 320px;
+     padding: 10px;
+     border-radius: 25px;
+     float:left;
 }
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+ .image {
+     max-height: 45%;
+     max-width: 45%;
+     margin-left: auto;
+     margin-right: auto;
+     border-radius: 25px;
 }
-
-.center-div {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+ .image-center {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 50%;
 }
-
-.clearfix {
-  overflow: auto;
-}
-
-.footer-image {
-    height: 50px;
-    width: 50px;
-    padding: 10px;
-}
-
-.footer-text {
-    font-style: italic;
-}
-
-.float-right {
-      float: right;
-}
-
-.float-left {
-      float: left;
-}
-
-/*form {*/
-/*    display: inline-block;*/
-/*}*/
-
-/* Style the navigation menu */
-#myMenu {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Style the navigation links */
-#myMenu li a {
-  padding: 12px;
-  text-decoration: none;
-  color: black;
-  display: block
-}
-
-#myMenu li a:hover {
-  background-color: #eee;
-} 
-
-/* Scroll up Button*/
-#myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
-
-#myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
-
-
 /*makes graphs responsive*/
-img {
-  width: 100%;
-  height: auto;
+ img {
+     width: 100%;
+     height: auto;
 }
-
-.input-form {
-  width: 100%;
+/*Centers Div*/
+ .center-div {
+     margin: auto;
+     width: 50%;
+     padding: 10px;
 }
-
-.navbar-default {
-	background-image: none;
-	margin-bottom: 0;
+/*Clear fix for a floating element will flow around it.*/
+ .clearfix {
+     overflow: auto;
 }
-
-li a {
-    font-family: 'Roboto', sans-serif;
+/*Footer Styles*/
+ .footer-image {
+     height: 50px;
+     width: 50px;
+     padding: 10px;
 }
-
-.section-heading, #discipline-selector {
-	display: inline-block;	
-	float: none;
-	margin: 0;
+ .footer-text {
+     font-style: italic;
 }
-
-.section-heading {
-	margin-bottom: 50px;
+ .footer-white{
+     color: white;
 }
-
-#discipline-selector {
-	margin-left: 15px;
+ .float-right {
+     float: right;
 }
-
-.number-box {
-	margin-right: 75px;
+ .float-left {
+     float: left;
 }
-
-.number-box, .fa.fa-gender {
-    font-size: 30px;
-    font-weight: 500;
+/* Style the navigation menu */
+/* #myMenu {
+    */
+    /* list-style-type: none;
+    */
+    /* padding: 0;
+    */
+    /* margin: 0;
+    */
+    /*
 }
-
-.fa-gender {
-	margin-right: 10px;
+*/
+/* Style the navigation links */
+/* #myMenu li a {
+    */
+    /* padding: 12px;
+    */
+    /* text-decoration: none;
+    */
+    /* color: black;
+    */
+    /* display: block */
+    /*
 }
-
-.custom-chart {
-	margin-bottom: 40px;
+*/
+/* #myMenu li a:hover {
+    */
+    /* background-color: #eee;
+    */
+    /*
 }
-
-.section {
-	border-bottom: 1px solid #e6e6e6;
-	padding: 30px 0;
+*/
+/* #myBtn:hover {
+    */
+    /* background-color: #555;
+    */
+    /* Add a dark-grey background on hover */
+    /*
 }
-
-.section-paragraph {
-	line-height: 1.2;
+*/
+/* .input-form {
+    */
+    /* width: 100%;
+    */
+    /*
 }
-
-#nav-home {
-    padding: 0 15px;
+*/
+/* .navbar-default {
+    */
+    /* background-image: none;
+    */
+    /* margin-bottom: 0;
+    */
+    /*
 }
-
-#login-form{
-    padding-bottom: 30px;
+*/
+/* li a {
+    */
+    /* font-family: 'Roboto', sans-serif;
+    */
+    /*
 }
-
-#login-form{
-    padding-bottom: 30px;
+*/
+/* .section-heading, #discipline-selector {
+    */
+    /* display: inline-block;
+    */
+    /* float: none;
+    */
+    /* margin: 0;
+    */
+    /*
 }
+*/
+/* .section-heading {
+    */
+    /* margin-bottom: 50px;
+    */
+    /*
+}
+*/
+/* #discipline-selector {
+    */
+    /* margin-left: 15px;
+    */
+    /*
+}
+*/
+/* .number-box {
+    */
+    /* margin-right: 75px;
+    */
+    /*
+}
+*/
+/* .number-box, .fa.fa-gender {
+    */
+    /* font-size: 30px;
+    */
+    /* font-weight: 500;
+    */
+    /*
+}
+*/
+/* .custom-chart {
+    */
+    /* margin-bottom: 40px;
+    */
+    /*
+}
+*/
+/* .section {
+    */
+    /* border-bottom: 1px solid #e6e6e6;
+    */
+    /* padding: 30px 0;
+    */
+    /*
+}
+*/
+/* .section-paragraph {
+    */
+    /* line-height: 1.2;
+    */
+    /*
+}
+*/
+/* .btn_small {
+    */
+    /* height: 24px;
+    */
+    /* width: 60px;
+    */
+    /* line-height: 24px;
+    */
+    /* margin: 5px 5px;
+    */
+    /* padding: 0 0.5em;
+    */
+    /*
+}
+*/
+/* .task_header {
+    */
+    /* margin-top: 5px;
+    */
+    /*
+}
+*/

@@ -1,23 +1,21 @@
 {% extends 'base.html' %} {% block content %}
 
-   <div class="container-fluid">
+<div class="container-fluid">
     <br>
     <div class="row">
 
         <div class="col-md-12">
             <div class="row">
 
-                <div class="col-md-3">
-                </div>
 
-                <div class="col-md-6 center">
-                        <h1 class="center">{{page_title}}</h1>
+                <div class="col-md-12 center">
+                    <h1 class="center">{{page_title}}</h1>
 
-                  <!--Data Goes Here-->
+                    <!--Data Goes Here-->
                     <p>As the calories increase so does the popularity.</p>
-                  <img class="center img" src="../static/img/popbycal.png" alt="Popularity by Calorie"></img>
+                    <img class="center img" src="../static/img/popbycal.png" alt="Popularity by Calorie"></img>
                     <hr>
-                    
+
                     <p>As the time to cook increases so does the popularity.</p>
                     <img class="center img" src="../static/img/popbytime.png" alt="Popularity by Cooking time"></img>
                     <hr>
@@ -25,21 +23,20 @@
                     <p>As the serving amount increases so does the popularity.</p>
                     <img class="center img" src="../static/img/popbysize.png" alt="Popularity by serving amount"></img>
                     <hr>
-                    
+
                     <p>Popularity, cooking time and serving amount by calories.</p>
                     <p>Time to cook and popularity have a semi close relationship while serving amount does not.</p>
                     <img class="center img" src="../static/img/popby.png" alt="Popularity by all three"></img>
 
-                   </div>
-
-                <div class="col-md-3">
                 </div>
-                
+
+
+
             </div>
         </div>
 
     </div>
 </div>
-   
-   
+
+
 {% endblock %}

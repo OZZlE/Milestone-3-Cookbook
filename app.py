@@ -69,7 +69,7 @@ def add_recipes():
     if request.method == "POST":
         flash("Thanks, You have added a recipe to the database".format(
         ))
-    return render_template("addrecipes.html", page_title="Add a Recipe",  categories=mongo.db.categories.find())
+    return render_template("addrecipes.html", page_title="Recipes",  categories=mongo.db.categories.find())
     
 
 # Route for viewing a single recipe in detail.
@@ -145,20 +145,13 @@ def delete_recipe(recipe_id):
             recipe.delete_one({'_id': ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
 
-# Get Category from Database
-@app.route('/get_categories')
-def get_categories():
-    return render_template('categories.html', page_title="Categories",
-                           categories=mongo.db.categories.find())
-
     
 # Display Login Page
 @app.route("/data")
 def data():
     return render_template('data.html', page_title="Data Overview")    
     
-# Display Login Page
-
+    
 # Login a User
 @app.route('/login', methods=['POST', 'GET'])
 def login():
@@ -198,7 +191,7 @@ def insert_user():
             return redirect(url_for('index'))
         
         flash('That username already exists!')
-        return redirect(url_for('login'))
+        return redirect(url_for('signup'))
         
         
 

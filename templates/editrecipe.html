@@ -1,11 +1,11 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-2">
-				</div>
-				<div class="col-md-8 center">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8 center">
                     <h2>{{page_title}} {{recipe.recipe_name}}</h2>
                     <p>Fill out the form below to edit a recipe from the database.</p>
                     <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST">
@@ -15,7 +15,7 @@
                         <label> Category</label>
                         <div class="row">
                             <div class="input-field ">
-                                <textarea  name="category_name" id="category_name" class="materialize-textarea">{{ recipe.category_name }}</textarea>
+                                <textarea name="category_name" id="category_name" class="materialize-textarea">{{ recipe.category_name }}</textarea>
                             </div>
                         </div>
                         <br>
@@ -33,7 +33,7 @@
                         <label for="recipe_name">Recipe Name</label>
                         <div class="row">
                             <div class="input-field ">
-                                <textarea name="recipe_name" id="recipe_name" class="materialize-textarea" >{{ recipe.recipe_name }}</textarea>
+                                <textarea name="recipe_name" id="recipe_name" class="materialize-textarea">{{ recipe.recipe_name }}</textarea>
                             </div>
                         </div>
                         <br>
@@ -172,28 +172,28 @@
                             </div>
                         </div>
                         <!--Buttons-->
-                                    <div class="row">
-                                <div class="input-field col s12">
-                            <!--Go Back-->
-                            <a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"><button class="btn waves-effect waves-light btn-large" type="button" name="url" id="goBack"><b>No! Take me back!</b></button></a>
-                              </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <!--Go Back-->
+                                <a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"><button class="btn waves-effect waves-light btn-large" type="button" name="url" id="goBack"><b>No! Take me back!</b></button></a>
+                            </div>
                         </div>
-                                                                <div class="row">
-                                <div class="input-field col s12">
-                            <!--Submit-->
-                            <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="editRecipeButton">Submit</button>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <!--Submit-->
+                                <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="editRecipeButton">Submit</button>
+                            </div>
                         </div>
-                        </div>
-                        
+
                     </form>
-				</div>
-				
-				<div class="col-md-2">
-				</div>
-				
-			</div>
-		</div>
-	</div>
+                </div>
+
+                <div class="col-md-2">
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

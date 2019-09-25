@@ -7,26 +7,32 @@
     <!--Filter by # of cooked-->
     <a class="waves-effect waves-light btn-small" href="{{ url_for('get_recipes_popular')}}"><i class="material-icons left">restaurant</i>Popularity</a>
     <!--Clear filter-->
-    <a class="waves-effect waves-light btn-small" href="{{ url_for('get_recipes')}}" ><i class="material-icons left">clear_all</i>Clear</a>
+    <a class="waves-effect waves-light btn-small" href="{{ url_for('get_recipes')}}"><i class="material-icons left">clear_all</i>Clear</a>
 </div>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-           {% for recipe in recipes %}
+            {% for recipe in recipes %}
             <div class="row featurette">
                 <div class="col-md-7">
+                    <!--Recipe Name-->
                     <h3><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"> {{ recipe.recipe_name }}</a></h3>
+                    <!--Recipe Description-->
                     <p><i>{{ recipe.recipe_description }}</i></p>
+                    <!--Recipe Cooktime-->
                     <p> <b>Cook Time</b>: {{recipe.cook_time_string}} </p>
+                    <!--Recipe Calories-->
                     <p> <b>Calories</b>: {{recipe.calories}}</p>
+                    <!--Recipe # of times cooked-->
                     <p> <b>Cooked</b>: {{recipe.cooked}}</p>
                 </div>
                 <div class="col-md-5">
+                    <!--Recipe Image-->
                     <img class="featurette-image thumbnail-right" src="{{ recipe.image }}" alt="Picture of {{ recipe.name }}">
                 </div>
             </div>
-            <hr class="featurette-divider">  {% endfor %} 
+            <hr class="featurette-divider"> {% endfor %}
         </div>
     </div>
 </div>

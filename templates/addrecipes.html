@@ -1,198 +1,199 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-2">
-				</div>
-				<div class="col-md-8 center">
-				    <h2>{{page_title}}</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8 center">
+                    <h2>{{page_title}}</h2>
                     <p>Fill out the form below to add a recipe to the database.</p>
                     <p>If you don't know the calories, protein, carbohydrates or fat leave it blank.</p>
                     <form action="{{url_for('insert_recipes')}}" method="POST">
-                            <br>
-                            <!--Category-->
-                            <i class="material-icons prefix">category</i>
-                            <label> Category</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input type="text" name="category_name" id="category_name" class="materialize-input" required>
-                                </div>
+                        <br>
+                        <!--Category-->
+                        <i class="material-icons prefix">category</i>
+                        <label> Category</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input type="text" name="category_name" id="category_name" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Image-->
-                            <i class="material-icons prefix">add_a_photo</i>
-                            <label for="image">Add an image link</label>
-                            <div class="row">
-                                <div class="input-field">
-                                    <input type="text" name="image" id="image" class="materialize-input" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Image-->
+                        <i class="material-icons prefix">add_a_photo</i>
+                        <label for="image">Add an image link</label>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="image" id="image" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Name-->
-                            <i class="material-icons prefix">local_dining</i>
-                            <label for="recipe_name">Recipe Name</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input type="text" name="recipe_name" id="recipe_name" class="materialize-input" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Name-->
+                        <i class="material-icons prefix">local_dining</i>
+                        <label for="recipe_name">Recipe Name</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input type="text" name="recipe_name" id="recipe_name" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Amount-->
-                            <i class="material-icons prefix">add</i>
-                            <label for="amount">Amount Served</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input type="text" name="amount" id="amount" class="materialize-input" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Amount-->
+                        <i class="material-icons prefix">add</i>
+                        <label for="amount">Amount Served</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input type="text" name="amount" id="amount" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Descr-->
-                            <i class="material-icons prefix">notes</i>
-                            <label for="recipe_description">Description</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <textarea name="recipe_description" id="recipe_description" class="materialize-textarea" required></textarea>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Descr-->
+                        <i class="material-icons prefix">notes</i>
+                        <label for="recipe_description">Description</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <textarea name="recipe_description" id="recipe_description" class="materialize-textarea" required></textarea>
                             </div>
-                            <br>
-                            <!--Cook Time-->
-                            <i class="material-icons prefix">access_time</i>
-                            <label for="cook_time">Cook Time (in minutes)</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="cook_time" id="cook_time" class="materialize-input" type="number" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Cook Time-->
+                        <i class="material-icons prefix">access_time</i>
+                        <label for="cook_time">Cook Time (in minutes)</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="cook_time" id="cook_time" class="materialize-input" type="number" required>
                             </div>
-                            <br>
-                            <!--Labels-->
-                            <i class="material-icons prefix">label</i>
-                            <label for="label">Labels</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="label" id="label" class="materialize-input" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Labels-->
+                        <i class="material-icons prefix">label</i>
+                        <label for="label">Labels</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="label" id="label" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Ingredients-->
-                            <i class="material-icons prefix">local_grocery_store</i>
-                            <label for="recipe_ingredients">Ingredients</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="recipe_ingredients" id="recipe_ingredients" class="materialize-input" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Ingredients-->
+                        <i class="material-icons prefix">local_grocery_store</i>
+                        <label for="recipe_ingredients">Ingredients</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="recipe_ingredients" id="recipe_ingredients" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Prep Time-->
-                            <i class="material-icons prefix">hourglass_empty</i>
-                            <label for="preperation_time">Preperation Time</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input type="number" name="preperation_time" id="preperation_time" class="materialize-input" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Prep Time-->
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="preperation_time">Preperation Time</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input type="number" name="preperation_time" id="preperation_time" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Prep #1-->
-                            <i class="material-icons prefix">hourglass_empty</i>
-                            <label for="recipe_preperation_1">Preperation Step #1</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="recipe_preperation_1" id="recipe_preperation_1" class="materialize-input" required>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Prep #1-->
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_1">Preperation Step #1</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="recipe_preperation_1" id="recipe_preperation_1" class="materialize-input" required>
                             </div>
-                            <br>
-                            <!--Prep #2-->
-                            <i class="material-icons prefix">hourglass_empty</i>
-                            <label for="recipe_preperation_2">Preperation Step #2</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="recipe_preperation_2" id="recipe_preperation_2" class="materialize-input">
-                                </div>
+                        </div>
+                        <br>
+                        <!--Prep #2-->
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_2">Preperation Step #2</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="recipe_preperation_2" id="recipe_preperation_2" class="materialize-input">
                             </div>
-                            <br>
-                            <!--Prep #3-->
-                            <i class="material-icons prefix">hourglass_empty</i>
-                            <label for="recipe_preperation_3">Preperation Step #3</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="recipe_preperation_3" id="recipe_preperation_3" class="materialize-input">
-                                </div>
+                        </div>
+                        <br>
+                        <!--Prep #3-->
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_3">Preperation Step #3</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="recipe_preperation_3" id="recipe_preperation_3" class="materialize-input">
                             </div>
-                            <br>
-                            <!--Prep #4-->
-                            <i class="material-icons prefix">hourglass_empty</i>
-                            <label for="recipe_preperation_4">Preperation Step #4</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="recipe_preperation_4" id="recipe_preperation_4" class="materialize-input">
-                                </div>
+                        </div>
+                        <br>
+                        <!--Prep #4-->
+                        <i class="material-icons prefix">hourglass_empty</i>
+                        <label for="recipe_preperation_4">Preperation Step #4</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="recipe_preperation_4" id="recipe_preperation_4" class="materialize-input">
                             </div>
-                            <br>
-                            <!--Calories-->
-                            <i class="material-icons prefix">favorite</i>
-                            <label for="calories">Calories</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input id="calories" name="calories" type="number" class="materialize-input">
-                                </div>
+                        </div>
+                        <br>
+                        <!--Calories-->
+                        <i class="material-icons prefix">favorite</i>
+                        <label for="calories">Calories</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input id="calories" name="calories" type="number" class="materialize-input">
                             </div>
-                            <br>
-                            <!--Protien-->
-                            <i class="material-icons prefix">restaurant</i>
-                            <label for="protein">Protein (grams)</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input id="protein" name="protein" type="number" class="materialize-input">
-                                </div>
+                        </div>
+                        <br>
+                        <!--Protien-->
+                        <i class="material-icons prefix">restaurant</i>
+                        <label for="protein">Protein (grams)</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input id="protein" name="protein" type="number" class="materialize-input">
                             </div>
-                            <br>
-                            <!--Carbs-->
-                            <i class="material-icons prefix">cake</i>
-                            <label for="carbohydrates">Carbohydrates (grams)</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input id="carbohydrates" name="carbohydrates" type="number" class="materialize-input">
-                                </div>
+                        </div>
+                        <br>
+                        <!--Carbs-->
+                        <i class="material-icons prefix">cake</i>
+                        <label for="carbohydrates">Carbohydrates (grams)</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input id="carbohydrates" name="carbohydrates" type="number" class="materialize-input">
                             </div>
-                            <br>
-                            <!--Fat-->
-                            <i class="material-icons prefix">fastfood</i>
-                            <label for="fat">Fat (grams)</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input id="fat" name="fat" type="number" class="materialize-input"> 
-                                </div>
+                        </div>
+                        <br>
+                        <!--Fat-->
+                        <i class="material-icons prefix">fastfood</i>
+                        <label for="fat">Fat (grams)</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input id="fat" name="fat" type="number" class="materialize-input">
                             </div>
-                            <br>
-                            <!--Cooked Number-->
-                            <i class="material-icons prefix">favorite</i>
-                            <label for="cooked">Amount of times cooked</label>
-                            <div class="row">
-                                <div class="input-field ">
-                                    <input name="cooked" id="cooked" class="materialize-input"></input>
-                                </div>
+                        </div>
+                        <br>
+                        <!--Cooked Number-->
+                        <i class="material-icons prefix">favorite</i>
+                        <label for="cooked">Amount of times cooked</label>
+                        <div class="row">
+                            <div class="input-field ">
+                                <input name="cooked" id="cooked" class="materialize-input"></input>
                             </div>
-                            <!--Submit button-->
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="sendRecipeButton">Submit</button>
-                                </div>
+                        </div>
+                        <!--Submit button-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light btn-large green" type="submit" name="action" id="sendRecipeButton">Submit</button>
                             </div>
-                            <!--Reset Button-->
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <button class="btn waves-effect waves-light btn-large red" id="resetButton"  type="reset">Reset</button>
-                                </div>
+                        </div>
+                        <!--Reset Button-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn waves-effect waves-light btn-large red" id="resetButton" type="reset">Reset</button>
                             </div>
-                            <!--End of form-->
+                        </div>
+
+                        <!--End of form-->
                     </form>
-				</div>
-				
-				<div class="col-md-2">
-				</div>
-				
-			</div>
-		</div>
-	</div>
+                </div>
+
+                <div class="col-md-2">
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

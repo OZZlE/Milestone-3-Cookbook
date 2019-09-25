@@ -157,7 +157,7 @@ I had trouble finding pictures that matched the recipes, so I used the best imag
 
 - The recipes I used are from the wonderful cookbook [The Ultimate Bodybuilding Cookbook](https://www.amazon.com/Ultimate-Bodybuilding-Cookbook-High-Impact-Stronger/dp/162315765X). I highly recommend it.
 
-- Specials Thanks to the student slack channels, my mentor and stack overflow.
+- Specials Thanks to the student slack channels, my mentor and stack overflow.❤️
 
 ## Mockups
 

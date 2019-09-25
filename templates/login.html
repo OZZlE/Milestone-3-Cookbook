@@ -16,25 +16,27 @@
                         <div class="col-md-6 center">
                             <div class="form-group">
 
-                                <form method=POST action="{{ url_for('login') }}" class="col-md-12" >
+                                <!--Flash Message-->
+                                <div class="container" style="min-height:100% width:80%">
+                                    {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %} {{ message}} {% endfor %} {% endif %} {% endwith %} {% block body %}{% endblock %}
+                                </div>
+
+                                <form method=POST action="{{ url_for('login') }}" class="col-md-12">
+                                    <!--Username-->
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Username</label>
                                         <input type="text" class="form-control" name="username" placeholder="Jdoe">
                                     </div>
+                                    <!--Password-->
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
                                         <input type="password" class="form-control" name="pass" placeholder="*****">
                                     </div>
+                                    <!--Submit-->
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <button type="submit" class="btn btn-primary green browser-default">login</button>
-                                            
-                                            <ul class=flashes>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-                                            
+
                                         </div>
                                     </div>
                                 </form>

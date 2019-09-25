@@ -16,13 +16,19 @@
            {% for recipe in recipes %} 
             <div class="row featurette">
                 <div class="col-md-5">
+                    <!--Recipe Name-->
                     <h3><a href="{{ url_for('recipe_page', recipe_id=recipe._id)}}"> {{ recipe.recipe_name }}</a></h3>
+                    <!--Recipe Description-->
                     <p><i>{{ recipe.recipe_description }}</i></p>
+                    <!--Recipe Cook time-->
                     <p> <b>Cook Time</b>: {{recipe.cook_time_string}} </p>
+                    <!--Recipe Calories-->
                     <p> <b>Calories</b>: {{recipe.calories}}</p>
+                    <!--Recipe # of times cooked-->
                     <p> <b>Cooked</b>: {{recipe.cooked}}</p>
                 </div>
                 <div class="col-md-7">
+                    <!--Recipe Image-->
                     <img class="featurette-image thumbnail-right" src="{{ recipe.image }}" alt="Picture of {{ recipe.name }}">
                 </div>
             </div>

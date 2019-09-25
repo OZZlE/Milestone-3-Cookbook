@@ -3,25 +3,43 @@
     <div class="row">
         <div class="col-md-12">
             <div class="row">
+                <!--Recipe Image-->
                 <img class="image image-center" src="{{ recipes.image }}" alt="Profile image for {{recipes.recipe_name}}">
                 <div class="col-md-12">
                     <br>
+                    <!--Recipe Name-->
                     <h4>{{ recipes.recipe_name }}</h4>
+                    <!--Recipe Category Name-->
                     <p> <i>{{recipes.category_name}}</i></p>
+                    <!--Recipe Description-->
                     <p> <i>{{recipes.recipe_description}}</i></p>
+                    <!--Recipe Ingredients-->
                     <p><b>Ingredients</b>: {{recipes.recipe_ingredients}}</p>
+                    <!--Recipe Prep #1-->
                     <p><b>Preperation</b>: {{recipes.recipe_preperation_1}}</p>
+                    <!--Recipe Prep #2-->
                     <p> {{recipes.recipe_preperation_2}}</p>
+                    <!--Recipe Prep #3-->
                     <p> {{recipes.recipe_preperation_3}}</p>
+                    <!--Recipe Prep #4-->
                     <p> {{recipes.recipe_preperation_4}}</p>
+                    <!--Recipe Amount-->
                     <p> <b>Amount</b>: {{recipes.amount}}</p>
+                    <!--Recipe Prep time-->
                     <p> <b>Prep Time</b>: {{recipes.preperation_time}} minutes</p>
+                    <!--Recipe cook time-->
                     <p> <b>Cook Time</b>: {{recipes.cook_time}} minutes</p>
+                    <!--Recipe Calories-->
                     <p> <b>Calories</b>: {{recipes.calories}}</p>
+                    <!--Recipe Carbs-->
                     <p> <b>Carbohydrates</b>: {{recipes.carbohydrates}} g</p>
+                    <!--Recipe Fat-->
                     <p> <b>Fat</b>: {{recipes.fat}} g</p>
+                    <!--Recipe Protein-->
                     <p> <b>Protien</b>: {{recipes.protein}} g</p>
+                    <!--Recipe Label-->
                     <p> <b>Labels</b>: {{recipes.label}}</p>
+                    <!--Recipe Cooked-->
                     <p> <b>Cooked</b>: {{recipes.cooked}}</p>
                 </div>
             </div>
@@ -33,8 +51,7 @@
                     <!--Edit-->
                     <a href="{{ url_for('edit_recipes', recipe_id=recipes._id)}}"><button class="btn waves-effect waves-light btn-large yellow" type="button" name="url" id="editRecipeButton"><b>Edit</b></button></a>
                     <!--Delete-->
-                    <a href="{{ url_for('delete_recipes', recipe_id=recipes._id)}}"><button class="btn waves-effect waves-light btn-large red" type="button" name="url" id="deleteRecipeButton"><b>Delete</b></button></a> 
-                    {% else %}
+                    <a href="{{ url_for('delete_recipes', recipe_id=recipes._id)}}"><button class="btn waves-effect waves-light btn-large red" type="button" name="url" id="deleteRecipeButton"><b>Delete</b></button></a> {% else %}
                     <p class="center">Login to edit or delete recipe.</p>
                     <!--Edit-->
                     <button class="btn disabled btn-large" type="button" name="url" id="editRecipeButton"><b>Edit</b></button>
