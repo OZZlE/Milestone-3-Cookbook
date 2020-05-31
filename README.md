@@ -1,4 +1,4 @@
-# [Fitness Cookbook](https://cook-book-application.herokuapp.com/ "Milestone #3") 
+# [Racist Fitness Cookbook](https://cook-book-application.herokuapp.com/ "Milestone #3") 
 
 ### A website to help the hungry stay healthy and fit in the kitchen and in life. This site focuses on calories, popularity and cooking time so the user can get the recipe they need and start cooking right away.
 
